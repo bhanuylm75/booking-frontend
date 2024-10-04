@@ -8,7 +8,7 @@ import Test from './components/test/Test';
 //import Header from './components/header/Header'
 import Placepage from './pages/placepage/Placepage';
 import Stays from './pages/stays/Stays';
-import Placedetails from './pages/placedetails/placedetails';
+import Placedetails from './pages/placedetails/Placedetails';
 
 function App() {
   const [stays, setStays] = useState([]);
