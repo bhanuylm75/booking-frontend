@@ -92,7 +92,7 @@ const Stays = () => {
                 className="siImg"
               />
               <div className="siDesc">
-                <h1 className="siTitle">{hotel.name}</h1>
+                <h1 className="siTitle">{hotel.name}n</h1>
                 <span className="siDistance">500m from center</span>
                 
                 <span className="siFeatures">{hotel.formatted_address}</span>
