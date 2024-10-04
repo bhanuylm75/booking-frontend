@@ -7,7 +7,7 @@ const libraries = ['places'];
 
 const Test= () => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey:"AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw", // Replace with your Google Maps API Key
+    googleMapsApiKey:import.meta.env.VITE_GOOGLE_API_KEY, // Replace with your Google Maps API Key
     libraries,
   });
 

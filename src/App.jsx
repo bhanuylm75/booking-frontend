@@ -16,7 +16,7 @@ function App() {
   const [location, setLocation] = useState({ lat: null, lng: null });
 
   const fetchNearbyAttractions = async (latitude, longitude) => {
-    const apiKey = 'AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw';
+    const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
     const radius = 500000; // Search radius in meters
     const type = "tourist_attraction";
     const keyword = 'sightseeing';
@@ -57,7 +57,7 @@ function App() {
     
   };
   const fetchTouristAttractions = async () => {
-    const apiKey = 'AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw';
+    const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
     const radius = 1000000; // Search radius in meters
     const type = "tourist_attraction";
     const keyword = 'sightseeing';

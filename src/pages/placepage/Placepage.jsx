@@ -11,12 +11,7 @@ import "./placepage.css"
 import Thingstodo from '../../components/thingstodosection/Thingstodo';
 import Customheader from '../../components/customheader/Customheader';
 //import { useLocation } from 'react-router-dom';
-const placee={name: 'Goa', description: 'Famous for its pristine beaches, vibrant nightlife, Portuguese heritage, and laid-back atmosphere.', images: ["https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AXCi2Q698VZrQcr6oeG0IXHaV7A7H-huqyAEDIsG3FHaMfquersNHn5h3If5tlR72GufU_suPpdRjuTp6i2_HZieApEqXjrs_RBegaBn2XRkf-rg11y1GQ7U6oykBzR8jW2-xbCCmMSl8Q4gYYCWJtLDqtS0zqWCbyM7I1ahDpLWM_VO7mTG&key=AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw"
-  ,"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AXCi2Q5QX069msI5YF9Nqw62YetCTL43AwzWz3blLK6azhV9ZLMAkQ-SvEtdXyjo6XKntgjpUjcPR_rg6xkdq3qfa5ECmSyCakNRBs4osd_TR_P81nEA5MKrrbWKmPVwgeK3zwQL7M4wXFUMdJdRVOgzmNm5KwN2dMYH3BIA44VlcLgssxPJ&key=AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw","https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AXCi2Q6ulfriDj4rF4CIaW9BLGwDGTHAGKpULsIYwwyijJllxfdgp0Uxf6kFazaBm99EEJ9lClGiahrlwswKXLiSD_KSkLve34nObI0UVhc_LhmZri9uvUyii92E3hVb10UxFJuy6uiba2m6X8FJGkgcGOPqUeWiTU3hNSBCfYrvlOYieJZP&key=AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw","https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AXCi2Q5QX069msI5YF9Nqw62YetCTL43AwzWz3blLK6azhV9ZLMAkQ-SvEtdXyjo6XKntgjpUjcPR_rg6xkdq3qfa5ECmSyCakNRBs4osd_TR_P81nEA5MKrrbWKmPVwgeK3zwQL7M4wXFUMdJdRVOgzmNm5KwN2dMYH3BIA44VlcLgssxPJ&key=AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw","https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AXCi2Q6ulfriDj4rF4CIaW9BLGwDGTHAGKpULsIYwwyijJllxfdgp0Uxf6kFazaBm99EEJ9lClGiahrlwswKXLiSD_KSkLve34nObI0UVhc_LhmZri9uvUyii92E3hVb10UxFJuy6uiba2m6X8FJGkgcGOPqUeWiTU3hNSBCfYrvlOYieJZP&key=AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw"
 
-  
-
-], latitude: 15.2993, longitude: 74.124}
 
 
 

@@ -25,7 +25,7 @@ const Search = () => {
   const navigate = useNavigate();
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw', // Replace with your actual API key
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_API_KEY, // Replace with your actual API key
     libraries,
   });
 

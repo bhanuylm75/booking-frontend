@@ -23,7 +23,7 @@ const Thingstodo = ({place}) => {
       navigate('/stays', { state: { searchValue: place.name } });
       return; // Exit the function, no API call needed
     }
-    const apiKey = 'AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw';
+    const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
     //const latitude="15.2993"
     //const longitude="74.1240"
 
@@ -41,7 +41,7 @@ const Thingstodo = ({place}) => {
 };
 
 const getPhotoUrl = (photoReference) => {
-  return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=${"AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw"}`;
+  return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=${import.meta.env.VITE_GOOGLE_API_KEY}`;
 };
 
   return (

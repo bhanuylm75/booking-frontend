@@ -1,8 +1,9 @@
 /* eslint-disable no-unreachable */
 import axios from "axios";
+const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
 export const fetchNearbyAttractions = async (latitude, longitude,typee,radiuss,keywordd) => {
   //console.log(latitude,longitude)
-  const apiKey = 'AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw';
+  
   const radius = radiuss||500000;
   const type = typee;
   const keyword = keywordd||""
@@ -24,7 +25,6 @@ export const fetchNearbyAttractions = async (latitude, longitude,typee,radiuss,k
 
 
 export const attractions = async (latitude, longitude) => { 
-  const apiKey = 'AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw';
   const query = "tourist attractions aroumd me";
   const radius = 100000;  // Set a search radius of 5 kilometers (you can adjust this)
   
@@ -51,7 +51,7 @@ export const attractions = async (latitude, longitude) => {
 
 
 export const getPlaceDetails = async (placeId) => {
-  const apiKey = 'AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw';
+ 
   const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${apiKey}`;
 
   try {

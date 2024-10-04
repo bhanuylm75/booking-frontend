@@ -17,14 +17,14 @@ const Stays = () => {
 
   // Helper to get the photo URL
   const getPhotoUrl = (photoReference) => {
-    return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw`;
+    return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=${import.meta.env.VITE_GOOGLE_API_KEY}`;
   };
 
   // Function to fetch places based on the search value and optional page token
   const fetchPlaces = async (pageToken = null) => {
     setIsFetching(true);
 
-    const apiKey = 'AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw';
+    const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;;
     const radius = 5000; // 5 km search radius
     const type = "lodging"; // Focused on hotels/lodging
     const query = `best hotels in ${searchValue}`;

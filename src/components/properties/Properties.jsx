@@ -33,7 +33,7 @@ const Properties = ({stays}) => {
   //console.log(visibleStays)
 
   const getPhotoUrl = (photoReference) => {
-    return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=${"AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw"}`;
+    return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=${import.meta.env.VITE_GOOGLE_API_KEY}`;
   };
   return (
     <div className="stay-con">
