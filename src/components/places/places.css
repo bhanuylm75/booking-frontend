@@ -1,0 +1,135 @@
+
+.trip-con {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  height: auto;
+  
+  padding-bottom: 20px;
+  padding-top: 20px;
+  
+  width: 100%;
+  max-width: 1115px;
+  
+  
+
+}
+.top{
+  display: flex;
+  gap: 10px;
+
+ 
+ 
+}
+.conn{
+  display: flex;
+  justify-content: space-between;
+  
+}
+.sub-h{
+  display: flex;
+}
+.para{
+  display: flex;
+  align-self: flex-start;
+  font-size: 1.5rem; /* Large font size */
+  font-weight: 700; /* Bold font */
+  color:black;
+ 
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  margin: 0;
+ padding-bottom: 15px;
+ 
+}
+
+.p2{
+  color: #595959;
+}
+
+/* Grid Styling */
+
+
+/* Card Styling */
+.maintrip-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  cursor: pointer;
+  padding-top: 20px;
+  
+  
+ 
+}
+.abc{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+.abc::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Webkit browsers */
+}
+
+/* Hiding scrollbar for Firefox */
+.abc {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+.trip-img {
+  width: 179px;
+  height: 131px;
+  max-height: unset;
+  border-radius: 10px;
+ 
+  object-fit: cover;
+  overflow: hidden;
+
+}
+
+
+/* Info Styling */
+
+
+.arrow{
+  font-size: 15px;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  color: blueviolet;
+  transition: background-color 0.3s ease;
+  border-radius: 15px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  height: 30px;
+}
+
+
+.arrow:hover {
+  background-color: #ddd;
+  transform: scale(1.1); 
+}
+
+.tdesc{
+  color: black;
+  font-size: 15px; /* Large font size */
+  font-weight: 700; /* Bold font */
+  margin: 0;
+  text-decoration: none;
+  outline: none;
+ padding-top: 10px;
+ text-shadow: 2px 2px 10px rgba(239, 235, 235, 0.3); /* Subtle shadow */
+}
+
+.no-underline {
+  text-decoration: none !important; /* Force no underline */
+  color: inherit; /* Inherit color */
+}
+
+/* Prevent underline on hover */
+.no-underline:hover {
+  text-decoration: none !important;
+  color: inherit;
+}

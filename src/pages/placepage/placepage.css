@@ -1,0 +1,188 @@
+/* General Styles */
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Main Container */
+.main-place {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  margin-right: 40px;
+  justify-content: center;
+  background-color: white;
+  overflow-x: hidden;
+  margin-top: 60px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0px -2px 6px rgba(0, 0, 0, 0.05);
+ height: 250px;
+}
+
+/* Place Container */
+.place-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 250px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0px -2px 6px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.place-container:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+}
+
+/* First Content Column */
+.first-con {
+  width: 35%;
+ 
+}
+
+/* Second Content Column */
+.second-con {
+  width: 60%;
+  display: flex;
+  gap: 10px;
+  position: relative;
+  z-index: 0;
+  transition-delay: 0.2s;
+  
+}
+
+/* Place Description */
+.place-description {
+  font-size: 15px;
+  color: #4d4d4d;
+  line-height: 1.6;
+  margin-top: 8px;
+  opacity: 0.9;
+  width: 90%;
+}
+
+/* Place Name */
+.place-name {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #1f78b4, #1ca8dd);
+  -webkit-background-clip: text;
+  color: transparent; /* Use transparent to reveal the gradient */
+  margin-bottom: 10px;
+}
+
+/* Image Styling */
+.place-image {
+  width: 230px;
+  height: 166px;
+  border-radius: 14px;
+  object-fit: cover;
+  
+}
+
+
+
+/* Arrows */
+.arrow-left {
+  background: whitesmoke;
+  border: none;
+  color: #666;
+  border-radius: 50%;
+ 
+  display: flex;
+  font-weight: bolder;
+  cursor: pointer;
+  position: absolute;
+  padding: 10px;
+  text-decoration: none;
+  outline: none;
+  z-index: 1;
+  left:37%;
+}
+.arrow-right{
+  background: whitesmoke;
+  border: none;
+  color: #666;
+  border-radius: 50%;
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  cursor: pointer;
+  position: absolute;
+  padding: 10px;
+  text-decoration: none;
+  outline: none;
+  z-index: 1;
+  right: 4%;
+}
+
+
+.arrow-left:hover,
+.arrow-right:hover {
+  color: #1f78b4; /* Hover effect */
+}
+
+/* Item Container */
+.item-con {
+  position: absolute;
+  margin: 0 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  top: 47%;
+  z-index: 999;
+  overflow-x: hidden;
+}
+
+/* Things Display */
+.things-display {
+  background-color: rgb(18, 18, 18);
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  
+
+  .main-place {
+    margin: 20px;
+    max-width: 100%;
+  }
+
+  
+
+  .first-con {
+    width: max-content;
+    padding-left: 20px;
+  }
+
+  .second-con {
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+
+  .place-image {
+    width: 150px;
+    height: 120px;
+    flex-shrink: 0;
+  }
+  .place-name{
+    font-size: 1rem;
+  }
+
+  .arrow-left,
+  .arrow-right {
+    display: none; /* Hide arrows on small screens */
+  }
+}

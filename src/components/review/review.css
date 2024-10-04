@@ -1,0 +1,135 @@
+/* Base Styles - No Change */
+.review-container {
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  width: 30%;
+  height: 250px;
+  overflow-y: scroll;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Webkit browsers */
+}
+
+.ratingg {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #003580;
+  color: white;
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.author-initial {
+  width: 50px;
+  height: 50px;
+  background-color: green;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.author-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  margin: 0;
+  font-size: 18px;
+}
+
+.author-location {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.india-flag {
+  width: 24px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.review-text {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* For medium devices (768px and below) */
+@media (max-width: 768px) {
+  .review-container {
+    width: 100%; /* Make the container full width on smaller screens */
+    height: auto; /* Adjust height for content overflow */
+    padding: 12px; /* Reduce padding */
+    margin-bottom: 20px;
+    flex-shrink: 0; /* Add space between reviews */
+  }
+
+  .ratingg {
+    font-size: 12px; /* Adjust font size */
+    padding: 5px 8px; /* Adjust padding */
+  }
+
+  .author-initial {
+    width: 40px;
+    height: 40px;
+    font-size: 20px; /* Adjust size for smaller screens */
+  }
+
+  .author-name {
+    font-size: 16px; /* Adjust font size */
+  }
+
+  .review-text {
+    font-size: 13px; /* Adjust font size */
+    margin-top: 10px;
+  }
+}
+
+/* For small devices (480px and below) */
+@media (max-width: 480px) {
+  .review-container {
+    width: 100%; /* Full width on small devices */
+    height: auto; /* Allow content to expand the height */
+    padding: 10px; /* Reduce padding further */
+  }
+
+  .ratingg {
+    font-size: 10px; /* Further reduce font size */
+    padding: 4px 6px;
+  }
+
+  .author-initial {
+    width: 35px;
+    height: 35px;
+    font-size: 18px; /* Smaller size for small devices */
+  }
+
+  .author-name {
+    font-size: 14px;
+  }
+
+  .review-text {
+    font-size: 12px; /* Smaller font size for review text */
+  }
+}

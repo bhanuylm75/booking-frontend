@@ -1,0 +1,198 @@
+body {
+  user-select: none;
+
+  
+  
+  
+}
+
+.banner-con{
+ padding: 20px;
+  margin-top: 40px;
+  display: flex;
+  background-color: whitesmoke;
+  margin: 40px;
+ 
+  flex-direction: column;
+  color:#4d4d4d;
+}
+.banner-con h2{
+  font-size: 28px;
+  font-weight: bold;
+ 
+}
+
+.banner-sub {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  text-decoration: none;
+  outline: none;
+  user-select: none;
+  scroll-behavior: smooth scroll;
+}
+
+.banner-sub p{
+  font-size: 18px;
+  font-weight: bold;
+  outline: none;
+  text-decoration: none;
+  
+  cursor: pointer;
+
+}
+
+.thin-line {
+  border: none;
+  opacity: 0.2;
+  height: 0.5px; /* Thickness of the line */
+  background-color: #000; /* Color of the line */
+  margin: 5px 0; /* Space around the line */
+}
+.customcardmain{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 58px;
+ 
+ 
+}
+
+.custom-card {
+ 
+  width: 325px; /* Reduced card width */
+  border-radius: 15px;
+  max-height: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  text-align: center;
+  padding: 15px; /* Adjusted padding */
+  cursor: pointer;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
+
+.custom-card-image {
+  width: 100%;
+  height: 250px; /* Reduced image height */
+  border-radius: 10px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  max-height: unset;
+  overflow: hidden;
+}
+
+.custom-card:hover .custom-card-image {
+  transform: scale(1.05); /* Image zoom effect on hover */
+}
+
+.custom-card-title {
+  font-size: 1rem; /* Slightly reduced font size */
+  margin-bottom: 8px;
+  
+}
+
+.custom-card-description {
+  font-size: 0.9rem; /* Reduced description font size */
+  
+  line-height: 1.4;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.rating, .reviews {
+  margin: 5px 0;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.star-icon, .user-icon {
+  margin-right: 5px;
+  color: #003580;
+  font-size: 0.5rem;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.explore-btn {
+  padding: 8px 15px;
+  border-radius: 5px;
+  color: #003580;
+  font-size: medium;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+
+
+.selected {
+  color: #003580;
+  text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+  .banner-con h2 {
+    font-size: 24px;
+  }
+
+  .banner-sub p {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  .custom-card {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .custom-card-image {
+    height: auto;
+  }
+
+  .custom-card-title {
+    font-size: 1.2rem;
+  }
+
+  .custom-card-description {
+    font-size: 0.9rem;
+  }
+
+  .explore-btn {
+    padding: 8px 15px;
+  }
+}
+

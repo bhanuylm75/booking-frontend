@@ -1,0 +1,29 @@
+.homeContainer{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+ 
+  gap: 30px;
+  padding-bottom: 50px;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+  .homeContainer {
+    gap: 20px;
+    padding: 10px;
+    /* Reduce gap between items for smaller screens */
+  }
+
+  .homeTitle {
+    font-size: 16px; /* Adjust font size for mobile devices */
+    max-width: 100%; /* Make the title take the full width on small screens */
+  }
+}
+
+

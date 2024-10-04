@@ -1,0 +1,144 @@
+/* Wrapper for the entire header section */
+.header-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: transparent; /* Transparent background for the heading */
+  max-width: 600px;
+  margin: 0 auto;
+  display: none;
+}
+
+/* Title (outside yellow border) */
+.header-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+  
+}
+
+/* Description (outside yellow border) */
+.header-description {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666;
+  margin-bottom: 20px;
+
+}
+
+/* Container (with yellow border) */
+.header-container {
+  display: flex;
+  flex-direction: column;
+ 
+  background-color: #ffffff; /* Light background */
+ 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border: 5px solid #ffb700; /* Yellow border */
+  width: 100%;
+}
+
+/* Search Box Container */
+.header-search-container {
+  width: 100%;
+}
+
+/* Search Box */
+.header-search-box {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ffb700;
+  padding: 10px 15px;
+  background-color: white;
+  width: 100%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-search-icon {
+  color: #666;
+  font-size: 1.2rem;
+}
+
+.header-search-input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  font-size: 1rem;
+}
+
+.header-clear-icon {
+  color: #666;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Date Input Container */
+.header-date-inputs {
+  display: flex;
+  width: 100%;
+}
+
+.header-input {
+  border: 5px solid #ffb700;
+ 
+  padding: 10px;
+  font-size: 1rem;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.header-input:last-child {
+  margin-right: 0;
+}
+
+/* Search Button */
+.header-search-button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.header-button {
+  background-color: #006ce4;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+
+
+/* Media Queries for Small and Medium Devices */
+@media (max-width: 1024px) {
+  .header-wrapper {
+    display: block;
+    max-width: 100%;
+  }
+
+  .header-title {
+    font-size: 1.6rem;
+  }
+
+  .header-description {
+    font-size: 0.9rem;
+  }
+
+  .header-search-box {
+    padding: 12px;
+  }
+
+  .header-input {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+
+  .header-button {
+    font-size: 0.9rem;
+  }
+}
