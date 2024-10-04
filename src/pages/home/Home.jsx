@@ -8,7 +8,7 @@ import { fetchNearbyAttractions,attractions } from "../../components/utils/Apida
 //import { fetchAllPlacePhotos } from "../../components/utils/Data"
 import axios from "axios"
 import Customheader from "../../components/customheader/Customheader"
-import Properties from "../../components/properties/properties"
+import Properties from "../../components/properties/Properties"
 import Placescard from "../../components/places/Placescard"
 
 const Home = () => {
