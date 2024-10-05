@@ -53,7 +53,7 @@ const Home = () => {
   useEffect(() => {
     const fetchtrips = async () => {
         
-        const {data}= await axios.get("http://localhost:5000/gettrips")
+        const {data}= await axios.get("http://16.170.215.126:5002/gettrips/")
         settrips(data.trips)
         //console.log(data)
     };
