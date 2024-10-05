@@ -67,7 +67,7 @@ const Home = () => {
       <Header/>
       <Customheader/>
       <div className="homeContainer">
-        <Properties stays={stays}/>
+      
         <Placescard stays={trips}/>
       
       </div>
