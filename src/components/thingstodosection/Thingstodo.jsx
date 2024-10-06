@@ -28,7 +28,7 @@ const Thingstodo = ({place}) => {
    
 
     try {
-        const response = await axios.get(`http://16.170.215.126:5000/api/thingstodo`, {
+        const response = await axios.get(`https://16.170.215.126/api/thingstodo`, {
           params: {
             lat: place.latitude,
             lng: place.longtitude,

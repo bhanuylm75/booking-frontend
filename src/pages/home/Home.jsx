@@ -4,7 +4,7 @@ import Header from "../../components/header/Header"
 import { useEffect,useState } from "react"
 import "./home.css"
 //import { Featured } from "../../components/Featured/Featured"
-import { fetchNearbyAttractions,attractions } from "../../components/utils/Apidata"
+//import { fetchNearbyAttractions,attractions } from "../../components/utils/Apidata"
 import { fetchAllPlacePhotos } from "../../components/utils/Data"
 //import { fetchAllPlacePhotos } from "../../components/utils/Data"
 import axios from "axios"
@@ -40,7 +40,7 @@ const Home = () => {
     const fetchStays = async () => {
       if (location.lat && location.lng) {
         try {
-          const response = await axios.get(`http://16.170.215.126:5000/api/getstaysaround`, {
+          const response = await axios.get(`https://16.170.215.126/api/getstaysaround`, {
             params: {
               lat: location.lat,
               lng: location.lng,
@@ -62,7 +62,7 @@ const Home = () => {
   useEffect(() => {
     const fetchtrips = async () => {
         
-        const {data}= await axios.get("http://16.170.215.126:5000/gettrips/")
+        const {data}= await axios.get("https://16.170.215.126/gettrips/")
         settrips(data.trips)
         //console.log(data)
     };
