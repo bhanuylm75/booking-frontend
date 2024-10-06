@@ -6,12 +6,15 @@ import Review from "../../components/review/Review";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCircleArrowLeft,
-  faCircleArrowRight,
+  faChevronLeft,
+  faChevronRight,
   faCircleXmark,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../../components/navbar/Navbar";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import axios from "axios";
 
 
 const Placedetails = () => {
@@ -24,8 +27,12 @@ const Placedetails = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const res = await getPlaceDetails(id);
-      setpropertie(res)
+      const res = await axios.get(`http://localhost:5000/api/getplacedetails`, {
+        params: {
+          id:id
+        },
+      })
+      setpropertie(res?.data)
       console.log(res)
         
     };
@@ -85,19 +92,11 @@ const Placedetails = () => {
               className="close"
               onClick={() => setOpen(false)}
             />
-            <FontAwesomeIcon
-              icon={faCircleArrowLeft}
-              className="arrow"
-              onClick={() => handleMove("l")}
-            />
+           
             <div className="sliderWrapper">
               <img src={photos[slideNumber].src} alt="" className="sliderImg" />
             </div>
-            <FontAwesomeIcon
-              icon={faCircleArrowRight}
-              className="arrow"
-              onClick={() => handleMove("r")}
-            />
+           
           </div>
         )}
         <div className="hotelWrapper">
@@ -130,8 +129,22 @@ const Placedetails = () => {
                 />
               </div>
             ))}
+            <div className="arrow-con">
+              
+            <ArrowBackIcon 
+    className="detail-arrow" 
+    onClick={() => handleMove("l")}
+  />
+  <ArrowForwardIcon 
+    className="detail-arrow" 
+    onClick={() => handleMove("r")}
+  />
+           
+           
+            </div>
+            
           </div>
-          <h3>Guest who stayed here loved</h3>
+          <h3>Guest who stayed here loved  <div className="arrow-con"></div></h3>
          <div className="review-con">
         {propertie?.reviews?.map((review,index)=>(
           review?.rating >= 4 ? <Review key={index} review={review} /> : null

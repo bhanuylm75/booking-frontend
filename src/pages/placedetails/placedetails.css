@@ -160,12 +160,8 @@
   cursor: pointer;
 }
 
-.arroww{
-  margin: 20px;
-  font-size: 50px;
-  color: lightgray;
-  cursor: pointer;
-}
+
+
 
 .review-con{
   display: flex;
@@ -174,11 +170,19 @@
   width: 100%;
 }
 
-/* Base Styles - No Change */
-
-/* For medium devices (768px and below) */
+.arrow-con {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10; /* Ensures it's above other content */
+  pointer-events: none; /* Allows image interaction if needed */
+}
 @media (max-width: 768px) {
-  /* Flexbox adjustments */
+  
   .hotelContainer {
     padding: 10px;
     margin-top: 10px;
@@ -192,10 +196,33 @@
   /* Hotel Images */
   .hotelImages {
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+  
+    position: relative;
+    z-index: 0;
+   
   }
-
+  .arrow-con {
+    position: absolute;
+    top: 35%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10; /* Ensures it's above other content */
+    pointer-events: none; /* Allows image interaction if needed */
+  }
+  .detail-arrow{
+    font-size: 35px;
+    padding: 10px;
+    color: rgb(236, 227, 227); /* Change arrow color to black */
+    pointer-events: none;
+  
+   
+  }
+ 
+  
   .hotelImgWrapper {
     flex: 0 0 100%;
     scroll-snap-align: start;
@@ -241,102 +268,10 @@
   }
 
   /* Arrows for Slider */
-  .arrow {
-    font-size: 30px;
+  
+  .slider{
+    display: none;
   }
 }
 
 /* For small devices (480px and below) */
-@media (max-width: 480px) {
-  /* General layout */
-  .hotelContainer {
-    margin: 0 10px;
-    height: auto;
-  }
-
-  .hotelWrapper {
-    padding: 0 10px;
-  }
-
-  .hotelTitle {
-    font-size: 20px;
-  }
-
-  .hotelAddress {
-    font-size: 10px;
-    gap: 5px;
-  }
-
-  /* Hotel Images */
-  .hotelImages {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-  }
-
-  .hotelImgWrapper {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
-  }
-
-  .hotelImg {
-    height: 200px;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  /* Slider Arrows */
-  .arrow {
-    font-size: 25px;
-  }
-
-  /* Hotel Details */
-  .hotelDetails {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .hotelDetailsTexts {
-    font-size: 12px;
-  }
-
-  .hotelDetailsPrice {
-    padding: 10px;
-    gap: 10px;
-    flex-direction: column;
-  }
-
-  .hotelDetailsPrice > h1 {
-    font-size: 14px;
-  }
-
-  .hotelDetailsPrice > span {
-    font-size: 12px;
-  }
-
-  .hotelDetailsPrice > h2 {
-    font-size: 14px;
-  }
-
-  .hotelDetailsPrice > button {
-    padding: 8px 15px;
-    font-size: 14px;
-  }
-
-  /* Book Now Button */
-  .bookNow {
-    padding: 8px 15px;
-    font-size: 12px;
-    top: 5px;
-    right: 5px;
-    display: none;
-  }
-
-  /* Review Section */
-  .review-con {
-    flex-wrap: nowrap;
-    flex-shrink: 0;
-    gap: 10px;
-    overflow: scroll;
-  }
-}

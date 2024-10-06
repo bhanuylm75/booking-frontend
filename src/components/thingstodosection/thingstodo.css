@@ -7,10 +7,10 @@ body {
 }
 
 .banner-con{
- padding: 20px;
+ padding: 40px;
   margin-top: 40px;
   display: flex;
-  background-color: whitesmoke;
+ background-color: whitesmoke;
   margin: 40px;
  
   flex-direction: column;
@@ -52,14 +52,16 @@ body {
 .customcardmain{
   display: flex;
   flex-wrap: wrap;
-  gap: 58px;
+  gap: 40px;
+  margin-top: 20px;
+
  
  
 }
 
 .custom-card {
  
-  width: 325px; /* Reduced card width */
+  width: 30%; /* Reduced card width */
   border-radius: 15px;
   max-height: 400px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -77,7 +79,7 @@ body {
 
 .custom-card-image {
   width: 100%;
-  height: 250px; /* Reduced image height */
+  height: 220px; /* Reduced image height */
   border-radius: 10px;
   margin-bottom: 10px;
   object-fit: cover;
@@ -128,7 +130,7 @@ body {
 
 .rating, .reviews {
   margin: 5px 0;
-  font-size: 1rem;
+  font-size: smaller;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -164,9 +166,15 @@ body {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .banner-con{
+    margin: 20px;
+  }
   .banner-con h2 {
     font-size: 24px;
+  }
+  .rating, .reviews {
+   font-size: smaller;
   }
 
   .banner-sub p {
@@ -175,10 +183,10 @@ body {
   }
 
   .custom-card {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
   }
-
+  
   .custom-card-image {
     height: auto;
   }

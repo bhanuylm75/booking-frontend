@@ -150,14 +150,18 @@ body {
 }
 
 /* Media Queries for Mobile Responsiveness */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   
 
   .main-place {
     margin: 20px;
     max-width: 100%;
+    padding-right: 10px;
   }
-
+  .place-description {
+    font-size: small;
+    
+  }
   
 
   .first-con {
@@ -170,15 +174,20 @@ body {
     flex-wrap: nowrap;
     overflow-x: auto;
     scroll-behavior: smooth;
+    
+   
   }
 
   .place-image {
     width: 150px;
     height: 120px;
     flex-shrink: 0;
+    
+  
+  
   }
   .place-name{
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .arrow-left,

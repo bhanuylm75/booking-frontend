@@ -12,7 +12,7 @@ const Thingstodo = ({place}) => {
   const [statedata,setstatedata]=useState([])
   const [selected, setSelected] = useState("MostLovedPlaces");
   const navigate = useNavigate();
-  console.log(place,place.latitude)
+  //console.log(place,place.latitude)
   useEffect(()=>{
     handleSearch("MostLovedPlaces")
   },[])
@@ -23,17 +23,19 @@ const Thingstodo = ({place}) => {
       navigate('/stays', { state: { searchValue: place.name } });
       return; // Exit the function, no API call needed
     }
-    const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
-    //const latitude="15.2993"
-    //const longitude="74.1240"
-
+    
     const query = `best ${ptext} in ${place.name}`;
-    //console.log(query)
-    const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&location=${place.latitude},${place.longitude}&key=${apiKey}`;
+   
 
     try {
-        const response = await axios.get(url);
-        console.log(response.data.results);
+        const response = await axios.get(`http://localhost:5000/api/thingstodo`, {
+          params: {
+            lat: place.latitude,
+            lng: place.longtitude,
+            query:query,
+          },
+        });
+        console.log(response);
         setstatedata(response.data.results)
     } catch (error) {
         console.error('Error fetching places:', error);

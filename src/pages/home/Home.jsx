@@ -5,10 +5,11 @@ import { useEffect,useState } from "react"
 import "./home.css"
 //import { Featured } from "../../components/Featured/Featured"
 import { fetchNearbyAttractions,attractions } from "../../components/utils/Apidata"
+import { fetchAllPlacePhotos } from "../../components/utils/Data"
 //import { fetchAllPlacePhotos } from "../../components/utils/Data"
 import axios from "axios"
 import Customheader from "../../components/customheader/Customheader"
-import Properties from "../../components/properties/properties"
+import Properties from "../../components/properties/Properties"
 import Placescard from "../../components/places/Placescard"
 
 const Home = () => {
@@ -34,31 +35,51 @@ const Home = () => {
    
 
   },[])
+
   useEffect(() => {
     const fetchStays = async () => {
       if (location.lat && location.lng) {
-        const fetchedStays = await fetchNearbyAttractions(location.lat, location.lng,"lodging");
-        setStays(fetchedStays);
-        console.log(fetchedStays)
-        const weekendgateways = await attractions(location.lat, location.lng);
-        //console.log(weekendgateways)
-        setweekendgateways(weekendgateways)
-        //console.log(weekendgateways);
+        try {
+          const response = await axios.get(`http://localhost:5000/api/getstaysaround`, {
+            params: {
+              lat: location.lat,
+              lng: location.lng,
+            },
+          });
+          console.log(response)
+          setStays(response.data)
+        } catch (error) {
+          console.error('Error fetching stays:', error);
+        }
       }
     };
-
-    fetchStays();
-  }, [location]);
   
+    fetchStays();
+  }, [location.lat, location.lng]);
+  
+
+
   useEffect(() => {
     const fetchtrips = async () => {
         
-        const {data}= await axios.get("http://localhost:5000/gettrips")
+        const {data}= await axios.get("http://16.170.215.126:5002/gettrips/")
         settrips(data.trips)
         //console.log(data)
     };
 
     fetchtrips();
+  }, []);
+  
+  useEffect(() => {
+    const fetchpics = async () => {
+        
+        const data= await fetchAllPlacePhotos()
+        
+        //console.log(data)
+    
+    };
+
+    fetchpics();
   }, []);
   
   return (
@@ -68,6 +89,7 @@ const Home = () => {
       <Customheader/>
       <div className="homeContainer">
         <Properties stays={stays}/>
+       
         <Placescard stays={trips}/>
       
       </div>

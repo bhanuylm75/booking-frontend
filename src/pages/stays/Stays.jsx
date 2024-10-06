@@ -21,43 +21,38 @@ const Stays = () => {
   };
 
   // Function to fetch places based on the search value and optional page token
-  const fetchPlaces = async (pageToken = null) => {
-    setIsFetching(true);
+ // Function to fetch places based on the search value and optional page token
+const fetchPlaces = async (pageToken = null) => {
+  setIsFetching(true);
+  
+  const url = `http://localhost:5000/api/gethotels?searchValue=${searchValue}${pageToken ? `&nextPageToken=${pageToken}` : ''}`;
 
-    const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;;
-    const radius = 5000; // 5 km search radius
-    const type = "lodging"; // Focused on hotels/lodging
-    const query = `best hotels in ${searchValue}`;
-    const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&radius=${radius}&type=${type}&key=${apiKey}${pageToken ?`&pagetoken=${pageToken}` : ''}`;
+  try {
+    const response = await axios.get(url);
+    console.log(response)
+    const fetchedHotels = response.data.results;
 
-    try {
-      const response = await axios.get(url);
-      const fetchedHotels = response.data.results;
-      console.log(fetchedHotels);
-      if(pageToken){
-        setHotels((prevHotels) => [...prevHotels, ...fetchedHotels]);
-
-      }
-      else{
-        setHotels(fetchedHotels)
-      }
-
-      // Append new results to existing ones
-
-      // Check if there is a next page token for pagination
-      if (response.data.next_page_token) {
-        setTimeout(() => {
-          setNextPageToken(response.data.next_page_token);
-        }, 2000); // Slight delay for next_page_token to become valid
-      } else {
-        setNextPageToken(null); // No more pages
-      }
-    } catch (error) {
-      console.error("Error fetching places:", error);
-    } finally {
-      setIsFetching(false);
+    if (pageToken) {
+      setHotels((prevHotels) => [...prevHotels, ...fetchedHotels]);
+    } else {
+      setHotels(fetchedHotels);
     }
-  };
+
+    // Check if there is a next page token for pagination
+    if (response.data.next_page_token) {
+      setTimeout(() => {
+        setNextPageToken(response.data.next_page_token);
+      }, 2000); // Slight delay for next_page_token to become valid
+    } else {
+      setNextPageToken(null);
+    }
+  } catch (error) {
+    console.error('Error fetching places:', error);
+  } finally {
+    setIsFetching(false);
+  }
+};
+
 
   // Fetch the first set of places when the component mounts or when searchValue changes
   useEffect(() => {
@@ -80,7 +75,7 @@ const Stays = () => {
       <div className="searchresult-con">
         <Filterbox />
         <div className="searchitem-container">
-          {hotels.map((hotel, index) => (
+          {hotels?.map((hotel, index) => (
            <Link to={`/${hotel.place_id
            }`} key={index} className="no-underline">
             <div key={index} className="searchItem">

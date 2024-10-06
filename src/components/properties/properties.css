@@ -8,8 +8,6 @@
   max-width: 1115px;
   cursor: pointer;
 outline: none;
-margin-top: 40px;
-
 -webkit-tap-highlight-color: transparent;
   
 }
@@ -125,7 +123,6 @@ margin-top: 40px;
   .stay-con{
     width: 100%;
     max-width: 100%;
-    padding: 10px;
     margin-top: 0px;
   }
   .fp {
