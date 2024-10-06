@@ -40,7 +40,7 @@ const Home = () => {
     const fetchStays = async () => {
       if (location.lat && location.lng) {
         try {
-          const response = await axios.get(`http://localhost:5000/api/getstaysaround`, {
+          const response = await axios.get(`http://16.170.215.126:5000/api/getstaysaround`, {
             params: {
               lat: location.lat,
               lng: location.lng,
@@ -62,7 +62,7 @@ const Home = () => {
   useEffect(() => {
     const fetchtrips = async () => {
         
-        const {data}= await axios.get("http://16.170.215.126:5002/gettrips/")
+        const {data}= await axios.get("http://16.170.215.126:5000/gettrips/")
         settrips(data.trips)
         //console.log(data)
     };
@@ -88,12 +88,8 @@ const Home = () => {
       <Header/>
       <Customheader/>
       <div className="homeContainer">
-<<<<<<< HEAD
         <Properties stays={stays}/>
        
-=======
-      
->>>>>>> f1aa2672ca91a9b23d950c2eeec9f2447f958984
         <Placescard stays={trips}/>
       
       </div>

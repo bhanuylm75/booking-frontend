@@ -11,24 +11,7 @@ import Stays from './pages/stays/Stays';
 import Placedetails from './pages/placedetails/Placedetails';
 
 function App() {
-<<<<<<< HEAD
-=======
-  const [stays, setStays] = useState([]);
-  const [error, setError] = useState(null);
- 
-
- 
-   
-     
-  
-  
-
-
-
->>>>>>> f1aa2672ca91a9b23d950c2eeec9f2447f958984
- 
-
-  return (
+ return (
     <div className='con'>
       <Routes>
         <Route path='/' element={<Home />} />

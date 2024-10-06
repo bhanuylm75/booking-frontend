@@ -27,7 +27,7 @@ const Placedetails = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const res = await axios.get(`http://localhost:5000/api/getplacedetails`, {
+      const res = await axios.get(`http://16.170.215.126:5000/api/getplacedetails`, {
         params: {
           id:id
         },
