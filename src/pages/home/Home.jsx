@@ -88,8 +88,12 @@ const Home = () => {
       <Header/>
       <Customheader/>
       <div className="homeContainer">
+<<<<<<< HEAD
         <Properties stays={stays}/>
        
+=======
+      
+>>>>>>> f1aa2672ca91a9b23d950c2eeec9f2447f958984
         <Placescard stays={trips}/>
       
       </div>
