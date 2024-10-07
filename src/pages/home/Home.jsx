@@ -5,7 +5,7 @@ import { useEffect,useState } from "react"
 import "./home.css"
 //import { Featured } from "../../components/Featured/Featured"
 //import { fetchNearbyAttractions,attractions } from "../../components/utils/Apidata"
-import { fetchAllPlacePhotos } from "../../components/utils/Data"
+//import { fetchAllPlacePhotos } from "../../components/utils/Data"
 //import { fetchAllPlacePhotos } from "../../components/utils/Data"
 import axios from "axios"
 import Customheader from "../../components/customheader/Customheader"
@@ -70,17 +70,7 @@ const Home = () => {
     fetchtrips();
   }, []);
   
-  useEffect(() => {
-    const fetchpics = async () => {
-        
-        const data= await fetchAllPlacePhotos()
-        
-        //console.log(data)
-    
-    };
-
-    fetchpics();
-  }, []);
+  
   
   return (
     <div className="">
