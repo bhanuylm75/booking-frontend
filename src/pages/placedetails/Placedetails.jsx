@@ -27,7 +27,7 @@ const Placedetails = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const res = await axios.get(`https://16.170.215.126/api/getplacedetails`, {
+      const res = await axios.get(`https://treepr.in/api/getplacedetails`, {
         params: {
           id:id
         },

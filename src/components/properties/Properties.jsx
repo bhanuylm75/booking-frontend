@@ -69,7 +69,7 @@ const Properties = ({stays}) => {
             )}
           <div className="propcardbottom">
           <span className="fpName">{place.name.slice(0,28)}</span>
-          <span className="fpCity">{place.plus_code.compound_code.slice(8)
+          <span className="fpCity">{place.plus_code?.compound_code?.slice(8)
           }</span>
           <div className="fpRating">
             <button>{place.rating}</button>

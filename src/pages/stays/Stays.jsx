@@ -25,7 +25,7 @@ const Stays = () => {
 const fetchPlaces = async (pageToken = null) => {
   setIsFetching(true);
   
-  const url = `https://16.170.215.126/api/gethotels?searchValue=${searchValue}${pageToken ? `&nextPageToken=${pageToken}` : ''}`;
+  const url = `https://treepr.in/api/gethotels?searchValue=${searchValue}${pageToken ? `&nextPageToken=${pageToken}` : ''}`;
 
   try {
     const response = await axios.get(url);

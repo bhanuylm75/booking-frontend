@@ -1,18 +1,19 @@
 /* eslint-disable no-unreachable */
 import axios from "axios";
-const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
+const apiKey = "AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw"
 export const fetchNearbyAttractions = async (latitude, longitude,typee,radiuss,keywordd) => {
-  //console.log(latitude,longitude)
+  console.log(latitude,longitude)
   
-  const radius = radiuss||500000;
+  const radius = radiuss||5000;
   const type = typee;
   const keyword = keywordd||""
-  const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&type=${type}&keyword=${keyword}&key=${apiKey}`;
+  const url = `http://localhost:8080/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&key=${apiKey}`;
   
   try{
     const {data}= await axios.get(url)
+    console.log(data?.results)
     return data?.results;
-    //console.log(data?.results)
+   
 
   }
   catch(err){

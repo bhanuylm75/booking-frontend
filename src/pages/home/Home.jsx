@@ -11,6 +11,7 @@ import axios from "axios"
 import Customheader from "../../components/customheader/Customheader"
 import Properties from "../../components/properties/Properties"
 import Placescard from "../../components/places/Placescard"
+//import { fetchNearbyAttractions } from "../../components/utils/Apidata"
 
 const Home = () => {
   const [stays, setStays] = useState([]);
@@ -36,11 +37,12 @@ const Home = () => {
 
   },[])
 
+  
   useEffect(() => {
     const fetchStays = async () => {
       if (location.lat && location.lng) {
         try {
-          const response = await axios.get(`https://16.170.215.126/api/getstaysaround`, {
+          const response = await axios.get(`https://treepr.in/api/getstaysaround`, {
             params: {
               lat: location.lat,
               lng: location.lng,
@@ -59,12 +61,13 @@ const Home = () => {
   
 
 
+
   useEffect(() => {
     const fetchtrips = async () => {
         
-        const {data}= await axios.get("https://16.170.215.126/gettrips/")
+        const {data}= await axios.get("https://treepr.in/gettrips")
         settrips(data.trips)
-        //console.log(data)
+      
     };
 
     fetchtrips();
