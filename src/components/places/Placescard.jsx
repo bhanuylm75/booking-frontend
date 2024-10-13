@@ -9,7 +9,7 @@ import "./places.css"
 const Placescard = ({stays }) => {
   const scrollContainerRef = useRef(null);
   //const staysPerPage = 4;
-  //console.log(stays)
+  console.log(stays)
   let screenWidth = window.innerWidth;
   console.log("Screen width: " + screenWidth + "px");
   

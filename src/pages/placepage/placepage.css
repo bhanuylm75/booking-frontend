@@ -19,8 +19,10 @@ body {
   background-color: white;
   overflow-x: hidden;
   margin-top: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0px -2px 6px rgba(0, 0, 0, 0.05);
- height: 250px;
+ 
 }
 
 /* Place Container */
@@ -81,8 +83,8 @@ body {
 
 /* Image Styling */
 .place-image {
-  width: 230px;
-  height: 166px;
+  width: 50%;
+  aspect-ratio: 16 / 9; 
   border-radius: 14px;
   object-fit: cover;
   
@@ -123,7 +125,7 @@ body {
   text-decoration: none;
   outline: none;
   z-index: 1;
-  right: 4%;
+  right: 3.5%;
 }
 
 
@@ -156,7 +158,10 @@ body {
   .main-place {
     margin: 20px;
     max-width: 100%;
-    padding-right: 10px;
+   padding: 20px;
+    flex-direction: column;
+
+    
   }
   .place-description {
     font-size: small;
@@ -165,8 +170,8 @@ body {
   
 
   .first-con {
-    width: max-content;
-    padding-left: 20px;
+    width: 100%;
+   
   }
 
   .second-con {
@@ -174,13 +179,13 @@ body {
     flex-wrap: nowrap;
     overflow-x: auto;
     scroll-behavior: smooth;
-    
+   
    
   }
 
   .place-image {
-    width: 150px;
-    height: 120px;
+    width: 80%;
+   
     flex-shrink: 0;
     
   
@@ -194,4 +199,9 @@ body {
   .arrow-right {
     display: none; /* Hide arrows on small screens */
   }
+}
+
+.arrow-left.disabled, .arrow-right.disabled {
+  opacity: 0.5;
+  pointer-events: none; /* Prevent clicking when disabled */
 }

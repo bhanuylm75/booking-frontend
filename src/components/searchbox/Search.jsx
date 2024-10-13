@@ -81,7 +81,7 @@ const Search = () => {
           onPlaceChanged={handlePlaceChanged}
         >
           <input
-            type="text"
+            type="search"
             placeholder="Where are you going?"
             className="headerSearchInput"
             value={inputValue}

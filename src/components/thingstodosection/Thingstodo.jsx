@@ -24,7 +24,7 @@ const Thingstodo = ({place}) => {
       return; // Exit the function, no API call needed
     }
     
-    const query = `best ${ptext} in ${place.name}`;
+    const query = `${ptext} in ${place.name}`;
    
 
     try {

@@ -5,6 +5,7 @@
   padding: 16px;
   border-radius: 8px;
   width: 30%;
+  flex-shrink: 0;
   height: 250px;
   overflow-y: scroll;
   background-color: #f9f9f9;
@@ -78,8 +79,8 @@
 /* For medium devices (768px and below) */
 @media (max-width: 768px) {
   .review-container {
-    width: 100%; /* Make the container full width on smaller screens */
-    height: auto; /* Adjust height for content overflow */
+    width: 80%; /* Make the container full width on smaller screens */
+    /* Adjust height for content overflow */
     padding: 12px; /* Reduce padding */
     margin-bottom: 20px;
     flex-shrink: 0; /* Add space between reviews */
@@ -109,8 +110,8 @@
 /* For small devices (480px and below) */
 @media (max-width: 480px) {
   .review-container {
-    width: 100%; /* Full width on small devices */
-    height: auto; /* Allow content to expand the height */
+    width: 60%; /* Full width on small devices */
+   /* Allow content to expand the height */
     padding: 10px; /* Reduce padding further */
   }
 

@@ -165,11 +165,14 @@
 
 .review-con{
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 20px;
+  overflow-x: scroll;
   width: 100%;
 }
-
+.review-con::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Webkit browsers */
+}
 .arrow-con {
   position: absolute;
   top: 50%;

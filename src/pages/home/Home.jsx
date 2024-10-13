@@ -2,6 +2,7 @@
 import Navbar from "../../components/navbar/Navbar"
 import Header from "../../components/header/Header"
 import { useEffect,useState } from "react"
+import { useQuery } from 'react-query';
 import "./home.css"
 //import { Featured } from "../../components/Featured/Featured"
 //import { fetchNearbyAttractions,attractions } from "../../components/utils/Apidata"
@@ -12,11 +13,17 @@ import Customheader from "../../components/customheader/Customheader"
 import Properties from "../../components/properties/Properties"
 import Placescard from "../../components/places/Placescard"
 //import { fetchNearbyAttractions } from "../../components/utils/Apidata"
+const fetchTrips = async () => {
+  const { data } = await axios.get("https://treepr.in/gettrips");
+  console.log(data)
+  return data.trips;
+
+};
 
 const Home = () => {
   const [stays, setStays] = useState([]);
-  const [trips,settrips]=useState([])
-  const[weekendgateways,setweekendgateways] = useState([]);
+  //const [trips,settrips]=useState([])
+  //const[weekendgateways,setweekendgateways] = useState([]);
   //const [error, setError] = useState(null);
   const [location, setLocation] = useState({ lat: null, lng: null });
   
@@ -48,7 +55,7 @@ const Home = () => {
               lng: location.lng,
             },
           });
-          console.log(response)
+          //console.log(response)
           setStays(response.data)
         } catch (error) {
           console.error('Error fetching stays:', error);
@@ -62,18 +69,11 @@ const Home = () => {
 
 
 
-  useEffect(() => {
-    const fetchtrips = async () => {
-        
-        const {data}= await axios.get("https://treepr.in/gettrips")
-        settrips(data.trips)
-      
-    };
-
-    fetchtrips();
-  }, []);
-  
-  
+  const { data: trips, isLoading: isTripsLoading } = useQuery('trips', fetchTrips, {
+    staleTime: 10 * 60 * 1000, // Cache trips data for 10 minutes
+  });
+  console.log(trips)
+  if (isTripsLoading) return <div>Loading...</div>;
   
   return (
     <div className="">
@@ -81,8 +81,8 @@ const Home = () => {
       <Header/>
       <Customheader/>
       <div className="homeContainer">
-        <Properties stays={stays}/>
-       
+        
+       <Properties stays={stays}/>
         <Placescard stays={trips}/>
       
       </div>
