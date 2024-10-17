@@ -1,6 +1,6 @@
 
 .trip-con {
-  padding: 0;
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,8 +10,8 @@
   padding-bottom: 20px;
   padding-top: 20px;
   
-  width: 100%;
-  max-width: 1115px;
+  width: 89%;
+  
   
   
 
@@ -55,7 +55,7 @@
 .maintrip-card {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  
   cursor: pointer;
   padding-top: 20px;
   
@@ -81,7 +81,7 @@
 }
 .trip-img {
   width: 179px;
-  height: 131px;
+  height: 111px;
   max-height: unset;
   border-radius: 10px;
  
@@ -132,4 +132,13 @@
 .no-underline:hover {
   text-decoration: none !important;
   color: inherit;
+}
+
+
+@media (max-width: 768px) {
+  .trip-con{
+    width: 100%;
+    
+    
+  }
 }

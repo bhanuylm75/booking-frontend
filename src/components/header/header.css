@@ -6,6 +6,7 @@
   position: relative;
   align-items: center;
   padding-left: 70px;
+  padding-right: 70px;
   
 }
 
@@ -55,8 +56,8 @@
  
  justify-content: space-around;
   align-items: center;
-  width: 100%;
-  max-width: 1115px;
+  width: 89%;
+  
   
   
   border: 5px solid #ffb700;

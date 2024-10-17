@@ -4,9 +4,6 @@ import './review.css';
 
 const Review = ({review}) => {
   console.log(review)
-  const authorName = "John Doe";
-  const reviewText = "This is an amazing place! Had a wonderful experience with great service.";
-  const rating = 9.8;  // The rating to display
   
   return (
     <div className="review-container">

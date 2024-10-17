@@ -29,8 +29,8 @@
 }
 
 .siImg {
-  width: 200px;
-  height: 200px;
+  width: 25%;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 
@@ -177,7 +177,8 @@
   }
 
   .siImg {
-    width: 180px;
+    width: 33%;
+    aspect-ratio: 16 / 9;
     
   }
   .siCancelOpSubtitle{

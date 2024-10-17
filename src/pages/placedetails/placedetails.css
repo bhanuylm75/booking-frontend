@@ -3,17 +3,210 @@
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
-  margin-bottom: 100px;
- 
+  margin-bottom: 30px;
+  
 }
 
 .hotelWrapper {
-  width: 100%;
-  max-width: 950px;
+  width: 87%;
+  
   display: flex;
   flex-direction: column;
   gap: 10px;
   position: relative;
+}
+
+
+.review-con{
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: scroll;
+  width: 100%;
+}
+.review-con::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Webkit browsers */
+}
+.arrow-con {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10; /* Ensures it's above other content */
+  
+}
+
+
+/* For small devices (480px and below) */
+
+
+
+.hotelImages {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  gap: 10px;
+}
+
+
+.hotelImgWrapper {
+  width: 100%;
+}
+
+.hotelImg {
+  object-fit: cover;
+  cursor: pointer;
+  height: 250px;
+  width: 100%;
+}
+
+
+
+
+
+.hotelDetails {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+
+.review-con{
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: scroll;
+  width: 100%;
+  padding-bottom: 20px;
+}
+.review-con::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Webkit browsers */
+}
+.arrow-con {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10; /* Ensures it's above other content */
+  
+}
+
+
+@media (max-width: 768px) {
+  
+  .hotelContainer {
+   
+    margin-top: 10px;
+    
+   
+  }
+
+  .hotelWrapper {
+    width: 95%;
+ 
+  }
+
+  /* Hotel Images */
+  .hotelImages {
+    display: flex;
+    overflow: hidden;
+    
+    position: relative;
+    z-index: 0;
+   
+  }
+  .arrow-con {
+    position: absolute;
+    top: 35%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    z-index: 10; /* Ensures it's above other content */
+    
+  }
+  .detail-arrow{
+    font-size: 35px;
+    padding: 10px;
+    color: rgb(236, 227, 227); /* Change arrow color to black */
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    
+  
+   
+  }
+  
+  .detail-arrow.disabled {
+    opacity: 0.3; /* Lower opacity when disabled */
+    pointer-events: none; /* Disable clicking */
+    cursor: not-allowed;  /* Show 'not-allowed' cursor */
+  }
+ 
+  
+  .hotelImgWrapper {
+    flex: 0 0 100%;
+    transition: transform 0.5s ease-in-out; /* Animation for sliding effect */
+    scroll-snap-align: start;
+   
+  }
+  
+
+  .hotelImg {
+    aspect-ratio: 16/9;
+    width: 100%;
+    object-fit: cover;
+   outline: none;
+    background-color: transparent;
+
+  }
+
+  
+  /* Details Section */
+  .hotelDetails {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hotelDetailsPrice {
+    width: 100%;
+  }
+
+  .hotelDetailsPrice > h1 {
+    font-size: 16px;
+  }
+
+  .hotelDetailsPrice > h2 {
+    font-size: 16px;
+  }
+
+  /* Review Section */
+  .review-con {
+    
+    gap: 10px;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    padding-bottom: 10px;
+  }
+
+  /* Book Now Button */
+  .bookNow {
+    padding: 8px 15px;
+    font-size: 14px;
+    display: none;
+  }
+
+  /* Arrows for Slider */
+  
+  .slider{
+    display: none;
+  }
 }
 
 .bookNow {
@@ -57,25 +250,7 @@
   font-weight: 500;
 }
 
-.hotelImages {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr ;
-  gap: 10px;
-}
 
-.item3{
-  grid-column: span 2;
-}
-.hotelImgWrapper {
-  width: 100%;
-}
-
-.hotelImg {
-  object-fit: cover;
-  cursor: pointer;
-  height: 250px;
-  width: 100%;
-}
 
 
 
@@ -126,155 +301,8 @@
   border-radius: 5px;
 }
 
-.slider{
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.613);
-  z-index: 999;
-  display: flex;
-  align-items: center;
+
+.detail-arrow:focus {
+  outline: none; /* Remove default browser focus outline */
+  box-shadow: none; /* Remove box shadow if any */
 }
-
-.sliderWrapper{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.sliderImg{
-  width: 80%;
-  height: 80vh;
-}
-
-.close{
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 30px;
-  color: lightgray;
-  cursor: pointer;
-}
-
-
-
-
-.review-con{
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 20px;
-  overflow-x: scroll;
-  width: 100%;
-}
-.review-con::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Webkit browsers */
-}
-.arrow-con {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 10; /* Ensures it's above other content */
-  pointer-events: none; /* Allows image interaction if needed */
-}
-@media (max-width: 768px) {
-  
-  .hotelContainer {
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
-
-  .hotelWrapper {
- 
-  }
-
-  /* Hotel Images */
-  .hotelImages {
-    display: flex;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-  
-    position: relative;
-    z-index: 0;
-   
-  }
-  .arrow-con {
-    position: absolute;
-    top: 35%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10; /* Ensures it's above other content */
-    pointer-events: none; /* Allows image interaction if needed */
-  }
-  .detail-arrow{
-    font-size: 35px;
-    padding: 10px;
-    color: rgb(236, 227, 227); /* Change arrow color to black */
-    pointer-events: none;
-  
-   
-  }
- 
-  
-  .hotelImgWrapper {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
-  }
-
-  .hotelImg {
-    height: 300px;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  /* Details Section */
-  .hotelDetails {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .hotelDetailsPrice {
-    width: 100%;
-  }
-
-  .hotelDetailsPrice > h1 {
-    font-size: 16px;
-  }
-
-  .hotelDetailsPrice > h2 {
-    font-size: 16px;
-  }
-
-  /* Review Section */
-  .review-con {
-    
-    gap: 10px;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-  }
-
-  /* Book Now Button */
-  .bookNow {
-    padding: 8px 15px;
-    font-size: 14px;
-    display: none;
-  }
-
-  /* Arrows for Slider */
-  
-  .slider{
-    display: none;
-  }
-}
-
-/* For small devices (480px and below) */

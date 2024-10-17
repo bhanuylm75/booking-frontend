@@ -6,8 +6,8 @@
 }
 
 .navContainer{
-  width: 100%;
-  max-width: 1115px;
+  width: 88%;
+  
   color: white;
   display: flex;
   align-items: center;
@@ -32,13 +32,12 @@
     height: 50px; /* Allow height to adjust */
     justify-content: space-between;
     width: 100%; 
-   
     padding: 10px;
 
   }
 
   .navContainer {
-  
+    width: 100%;
   }
 
   .logo {
