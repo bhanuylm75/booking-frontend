@@ -53,11 +53,13 @@
 
 .hotelImgWrapper {
   width: 100%;
+  overflow: hidden;
 }
 
 .hotelImg {
   object-fit: cover;
   cursor: pointer;
+  overflow: hidden;
   height: 250px;
   width: 100%;
 }
@@ -104,6 +106,7 @@
    
     margin-top: 10px;
     
+    
    
   }
 
@@ -116,7 +119,8 @@
   .hotelImages {
     display: flex;
     overflow: hidden;
-    
+   
+    width: 100%;
     position: relative;
     z-index: 0;
    
@@ -126,8 +130,9 @@
     top: 35%;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    
     align-items: center;
+
     
     z-index: 10; /* Ensures it's above other content */
     
@@ -152,11 +157,15 @@
   
   .hotelImgWrapper {
     flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
     transition: transform 0.5s ease-in-out; /* Animation for sliding effect */
-    scroll-snap-align: start;
+   
    
   }
-  
+  .clider-con{
+    display: flex;
+  }
 
   .hotelImg {
     aspect-ratio: 16/9;
@@ -166,6 +175,8 @@
     background-color: transparent;
 
   }
+
+
 
   
   /* Details Section */
@@ -207,6 +218,8 @@
   .slider{
     display: none;
   }
+
+  
 }
 
 .bookNow {

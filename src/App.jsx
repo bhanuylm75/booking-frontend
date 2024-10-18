@@ -9,6 +9,7 @@ import './App.css'
 import Placepage from './pages/placepage/Placepage';
 import Stays from './pages/stays/Stays';
 import Placedetails from './pages/placedetails/Placedetails';
+import Test from './components/test/Test';
 
 function App() {
  return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/:index/:name" element={<Placepage/>} />
       <Route path="/:id" element={<Placedetails/>} />
       <Route path="/stays" element={<Stays/>} />
+      <Route path="/test" element={<Test/>} />
      
       </Routes>
     </div>

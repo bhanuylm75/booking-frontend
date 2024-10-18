@@ -4,8 +4,9 @@
   border: 1px solid #ddd;
   padding: 16px;
   border-radius: 18px;
-  width: 32%;
+  width: 34%;
   aspect-ratio: 16/9;
+ 
   flex-shrink: 0;
   
   overflow-y: scroll;
@@ -84,10 +85,10 @@
 /* For medium devices (768px and below) */
 @media (max-width: 768px) {
   .review-container {
-    width: 80%; /* Make the container full width on smaller screens */
+    width: 60%; /* Make the container full width on smaller screens */
     /* Adjust height for content overflow */
     padding: 12px; /* Reduce padding */
-   
+   min-height: 190px;
     flex-shrink: 0; /* Add space between reviews */
   }
 

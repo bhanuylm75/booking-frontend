@@ -20,6 +20,7 @@ import axios from "axios";
 const Placedetails = () => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isAnimating, setIsAnimating] = useState(false);
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
@@ -46,16 +47,23 @@ const Placedetails = () => {
     fetch();
   }, [id]);
 
-  const handleMove = (direction) => {
-    let newSlideNumber = slideNumber;
-
-    if (direction === "l") {
-      newSlideNumber = slideNumber === 0 ? 0 : slideNumber - 1;
-    } else if (direction === "r") {
-      newSlideNumber = slideNumber === propertie.photos.length - 1 ? slideNumber : slideNumber + 1;
+  
+  const nextSlide = () => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setSlideNumber((prevIndex) =>
+        prevIndex === propertie.photos?.length - 1 ? 0 : prevIndex + 1
+      );
     }
+  };
 
-    setSlideNumber(newSlideNumber);
+  const prevSlide = () => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setSlideNumber((prevIndex) =>
+        prevIndex === 0 ? propertie?.photos?.length - 1 : prevIndex - 1
+      );
+    }
   };
 
   
@@ -64,11 +72,14 @@ const Placedetails = () => {
 
   };
   console.log(slideNumber)
+  const handleTransitionEnd = () => {
+    setIsAnimating(false); // Allows interaction after animation ends
+  };
   
   return (
     <div>
      <Navbar/>
-      <div className="hotelContainer">
+      <div className="hotelContainer" >
        
         <div className="hotelWrapper">
           <button className="bookNow">Reserve or Book Now!</button>
@@ -89,7 +100,7 @@ const Placedetails = () => {
             <span>Excellent {propertie?.user_ratings_total
             } Reviews</span>
           </div>
-          <div className="hotelImages">
+          <div className="hotelImages"   >
           {windowWidth > 1024 ? (
             propertie.photos?.map((photo, i) => (
               <div className="hotelImgWrapper" key={i}>
@@ -102,11 +113,16 @@ const Placedetails = () => {
               </div>
             ))
           ) : (
-            <>
+            <div className="clider-con">
               {propertie.photos?.map((photo, i) => (
-                <div className="hotelImgWrapper" key={i}>
+                <div  style={{
+                  transform: `translateX(-${slideNumber * 100}%)`,
+                  transition: isAnimating ? 'transform 0.6s ease-in-out' : 'none',
+                }} 
+                onTransitionEnd={handleTransitionEnd}
+                className="hotelImgWrapper" key={i}>
                   <img
-                    src={getPhotoUrl(propertie.photos[slideNumber].photo_reference)}
+                    src={getPhotoUrl(photo.photo_reference)}
                     alt=""
                     className={`hotelImg item${i}`}
                     
@@ -115,13 +131,13 @@ const Placedetails = () => {
               ))}
               <div className="arrow-con">
                 <FontAwesomeIcon
-                  onClick={() => handleMove("l")}
+                  onClick={prevSlide}
                   className={`detail-arrow ${slideNumber === 0 ? "disabled" : ""}`}
                   icon={faChevronLeft}
                   disabled={slideNumber === 0}
                 />
                 <FontAwesomeIcon
-                  onClick={() => handleMove("r")}
+                  onClick={ nextSlide}
                   className={`detail-arrow ${
                     slideNumber === propertie.photos?.length - 1 ? "disabled" : ""
                   }`}
@@ -129,7 +145,7 @@ const Placedetails = () => {
                   disabled={slideNumber === propertie?.photos?.length - 1}
                 />
               </div>
-            </>
+            </div>
           )}
         </div>
 
