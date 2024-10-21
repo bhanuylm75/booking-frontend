@@ -11,9 +11,15 @@ const Stays = () => {
   const location = useLocation();
   const { searchValue } = location.state || "chennai"; // Default value for testing
   const [hotels, setHotels] = useState([]);
-  console.log(searchValue)
+  const linkitem=searchValue.split(",")[0]
   const [nextPageToken, setNextPageToken] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('');
+
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
   // Helper to get the photo URL
   const getPhotoUrl = (photoReference) => {
@@ -67,11 +73,59 @@ const fetchPlaces = async (pageToken = null) => {
     }
   }, [nextPageToken]);
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <>
       <Navbar />
       <Header type="list" />
       <Customheader/>
+       <div className='porn'>
+       <div className="select-container">
+      <select value={selectedOption} onChange={handleChange}>
+        <option value="" disabled>Select type</option>
+        <option value="Hostels">Hostels</option>
+        <option value="Resorts">Resorts</option>
+        <option value="Hotels">Hotels</option>
+        <option value="Apartments">Apartments</option>
+      </select>
+    </div>
+      
+      <button className='but' onClick={toggleSidebar}>Find Stays Elsewhere</button>
+      {isSidebarOpen && <div className={`sidebar overlay ${isSidebarOpen ? 'open' : ''}`} onClick={toggleSidebar}></div>}
+      <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+      <button onClick={toggleSidebar} className='close-sidebar'>Close</button>
+        <h3 className='siteheading'>Top Stays</h3>
+        <div className='site'>
+         <div className='sitesdiv'>
+         <h3 className='siteheading'>Popular sites</h3>
+         <a className='subheading' target="_blank" href={`https://www.booking.com/searchresults.en-gb.html?ss=${searchValue}`}>Booking.com</a>
+          <a href={`https://www.makemytrip.com/hotels/${linkitem}-hotels.html`} target="_blank" rel="noopener noreferrer">MakeMyTrip</a>
+          <a href={`https://www.trivago.in/`} target="_blank" rel="noopener noreferrer">Trivago</a>
+          <a href={`https://www.cleartrip.com/`} target="_blank" rel="noopener noreferrer">Cleartrip</a>
+          <a href={`https://www.airbnb.com/`} target="_blank" rel="noopener noreferrer">Airbnb</a>
+          <a href={`https://www.agoda.com/`} target="_blank" rel="noopener noreferrer">Agoda</a>
+          
+         </div>
+         <div className='hostelsdiv'>
+         <h3 className='siteheading'>Hostels</h3>
+        
+          <a href={`https://www.zostel.com/`} target="_blank" rel="noopener noreferrer">Zostel</a>
+          <a href={`https://www.thehosteller.com/`} target="_blank" rel="noopener noreferrer">Hosteller</a>
+         
+          <a href={`https://www.hostelworld.com/`} target="_blank" rel="noopener noreferrer">HostelWorld</a>
+
+         </div>
+        </div>
+        
+      </div>
+      </div>
+     
+
+      
+
       <div className="searchresult-con">
         <Filterbox />
         <div className="searchitem-container">

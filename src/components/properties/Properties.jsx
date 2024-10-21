@@ -1,35 +1,32 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import "./properties.css"
-import { useState } from "react";
+import { useState,useRef } from "react";
 
 const Properties = ({stays}) => {
   //const landstays=stays?.slice(0, 4)
-  console.log(stays)
-  const [currentIndex, setCurrentIndex] = useState(0);
-  let staysPerPage;
-  const deviceWidth = window.innerWidth;
-  //console.log("Current device width:", deviceWidth);
-  if (deviceWidth <768){
-    staysPerPage = stays.length
-  }
-  else{
-    staysPerPage=4
-  }
+  const scrollContainerRef = useRef(null);
+  
  
   const handleLeftArrow = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: -200, // Adjust the value to change scroll distance
+        behavior: 'smooth'
+      });
     }
   };
 
   // Handle right arrow click
   const handleRightArrow = () => {
-    if (currentIndex + staysPerPage < stays.length) {
-      setCurrentIndex(currentIndex + 1);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: 200, // Adjust the value to change scroll distance
+        behavior: 'smooth'
+      });
     }
   };
-  const visibleStays = stays.slice(currentIndex, currentIndex + staysPerPage);
+  //const visibleStays = stays.slice(currentIndex, currentIndex + staysPerPage);
   //console.log(visibleStays)
 
   const getPhotoUrl = (photoReference) => {
@@ -37,7 +34,7 @@ const Properties = ({stays}) => {
   };
   return (
     <div className="stay-con">
-       <div className="conn">
+    <div className="conn">
        <p className="para">Flagship Stays Around you</p>
        <div className="top">
        <button className="arrow" onClick={handleLeftArrow}>
@@ -49,14 +46,14 @@ const Properties = ({stays}) => {
        </div>
        </div>
     
-     <div className="fp">
-      {visibleStays?.map((place,index) => (
+     <div className="fp" ref={scrollContainerRef}>
+      {stays?.map((place,index) => (
          <Link className="no-underline" key={index}  to={`/${place.place_id
          }`}>
           <div  className="fpItem">
          {place.photos && place.photos.length > 0 ? (
               <img
-                src={getPhotoUrl(place.photos[0].photo_reference)}
+                src={getPhotoUrl(place?.photos[0]?.photo_reference)}
                 alt={place.name}
                 className="fpImg"
               />

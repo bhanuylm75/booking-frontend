@@ -2,11 +2,9 @@
 .stay-con {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+ 
   gap: 20px;
-  width: 89%;
-  
-  
+  width: 100%;
   cursor: pointer;
 outline: none;
 -webkit-tap-highlight-color: transparent;
@@ -46,10 +44,16 @@ outline: none;
   width: 100%;
   overflow: visible;
   padding-bottom: 20px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.fp::-webkit-scrollbar {
+  display: none;
 }
 
 .fpItem{
-  width: 265px;
+ width: 216px;
   gap: 10px;
   display: flex;
   flex-direction: column;
@@ -57,6 +61,7 @@ outline: none;
   border-radius: 10px;
   scroll-behavior: smooth;
   height: 300px;
+ 
   
   
 }
@@ -168,5 +173,3 @@ outline: none;
     display: none;
   }
 }
-
-

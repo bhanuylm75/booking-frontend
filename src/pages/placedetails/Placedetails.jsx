@@ -101,7 +101,7 @@ const Placedetails = () => {
             } Reviews</span>
           </div>
           <div className="hotelImages"   >
-          {windowWidth > 1024 ? (
+          {windowWidth >= 1024 ? (
             propertie.photos?.map((photo, i) => (
               <div className="hotelImgWrapper" key={i}>
                 <img

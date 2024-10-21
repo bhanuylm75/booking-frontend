@@ -3,7 +3,7 @@
 /* eslint-disable react/prop-types */
 
 import { Link } from "react-router-dom";
-import { useState,useRef } from "react";
+import { useRef } from "react";
 import "./places.css"
 
 const Placescard = ({stays }) => {

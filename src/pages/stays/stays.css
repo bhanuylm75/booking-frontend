@@ -1,31 +1,98 @@
-.searchresult-con{
-  display: flex;
-
-  gap: 10px;
- margin-top: 40px;
- justify-content: center;
- 
-  
+body, html {
+  margin: 0;
+  padding: 0;
 }
-.searchitem-container{
+.siteheading {
+  font-size: 36px;
+  font-weight: bold;
+  color: #1a1a1a; /* Dark shade for a professional look */
+  text-align: center;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #007bff, #00c9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Poppins', sans-serif; /* Modern, clean font */
+}
+
+.a {
+  font-size: 20px;
+  font-weight: 500;
+  color: #555;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px; /* Slight spacing for readability */
+  background: linear-gradient(90deg, #34ace0, #6a89cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.site a {
+  font-size: 20px;
+  font-weight: 500;
+  color: #555;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px; /* Slight spacing for readability */
+  background: linear-gradient(90deg, #34ace0, #6a89cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.site a:hover {
+  color: var(--link-hover-color); /* Change color on hover */
+  background-color: rgba(0, 0, 0, 0.1); /* Darken background on hover */
+}
+.porn{
+  display: none;
+}
+.site{
+  display: flex;
+  justify-content: space-between;
+ 
+  gap: 4px;
+}
+.close-sidebar {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+  .porn{
+    display: flex;
+    justify-content: space-evenly;
+     /* Show as flexbox when under 1024px */
+  }
+}
+.searchresult-con {
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.searchitem-container {
   display: flex;
   flex-direction: column;
-  
-
 }
+
 .searchItem {
   border: 1px solid lightgray;
   padding: 10px;
+  padding-left: 0px;
   border-radius: 5px;
   display: flex;
   gap: 10px;
   height: 240px;
   width: 100%;
- max-width: 825px;
- cursor: pointer;
- display: flex;
- 
-
+  max-width: 825px;
+  cursor: pointer;
 }
 
 .siImg {
@@ -33,13 +100,19 @@
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
-
+.sitesdiv{
+  display: flex;
+  flex-direction: column;
+}
+.hostelsdiv{
+  display: flex;
+  flex-direction: column;
+}
 .siDesc {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 70%;
-  
 }
 
 .siTitle {
@@ -60,95 +133,87 @@
   border-radius: 5px;
 }
 
-.siSubtitle{
+.siSubtitle {
   font-size: 12px;
   font-weight: bold;
 }
 
-.siFeatures{
+.siFeatures {
   font-size: 12px;
 }
 
-.siCancelOp{
+.siCancelOp {
   font-size: 12px;
   color: #008009;
   font-weight: bold;
 }
 
-.siCancelOpSubtitle{
+.siCancelOpSubtitle {
   font-size: 12px;
   color: #008009;
 }
 
-.sicon{
+.sicon {
   display: flex;
-  
- 
 }
+
 .siDetails {
- 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
- 
-  
 }
 
-.siRating{
+.siRating {
   display: flex;
   align-self: self-end;
- 
 }
-.rate-con{
+
+.rate-con {
   display: flex;
   flex-direction: column;
- 
- 
-  
-  
 }
-.score{
+
+.score {
   font-size: small;
   font-weight: 600;
   width: 100px;
 }
 
-.reviewtext{
+.reviewtext {
   font-size: 10px;
   align-items: self-start;
 }
 
-.siRating>span{
+.siRating > span {
   font-weight: 500;
 }
-.siRating>button{
- background-color: #003580;
- color: white;
- height: 20px;
- width: 35px;
- font-size: smaller;
- border: none;
+
+.siRating > button {
+  background-color: #003580;
+  color: white;
+  height: 20px;
+  width: 35px;
+  font-size: smaller;
+  border: none;
 }
 
-.siDetailTexts{
+.siDetailTexts {
   text-align: right;
   display: flex;
   flex-direction: column;
-  
   gap: 5px;
 }
 
-.siPrice{
+.siPrice {
   font-size: 24px;
 }
 
-.siTaxOp{
+.siTaxOp {
   font-size: 12px;
   color: gray;
 }
 
-.siCheckButton{
+.siCheckButton {
   background-color: #0071c2;
   color: white;
   font-weight: bold;
@@ -158,45 +223,162 @@
   border-radius: 5px;
 }
 
-@media (max-width: 1000px) {
-  .searchresult-con{
-   
+@media (max-width: 768px) {
+  .searchresult-con {
+    width: 100%;
+    padding-left: 0px;
+    margin-left: 0px !important;
   }
   .siTitle {
     font-size: small;
     width: fit-content; /* Adjust font size for smaller screens */
   }
-  .siFeatures{
-    font-size: 10px
+  .siFeatures {
+    font-size: 10px;
   }
-  .score{
+  .score {
     display: none;
   }
-  .reviewtext{
+  .reviewtext {
     display: none;
   }
-
   .siImg {
     width: 33%;
     aspect-ratio: 16 / 9;
-    
   }
-  .siCancelOpSubtitle{
+  .siCancelOpSubtitle {
     display: none;
   }
-
-  .siCancelOp{
+  .siCancelOp {
     display: none;
   }
-
   .siCheckButton {
-   display: none;
+    display: none;
   }
 }
 
-@media (max-width: 768px) {
-  .siCheckButton {
-    display: none;
-   }
 
+
+
+/* Sidebar styles for full-page modal from bottom */
+.sidebar {
+  position: fixed;
+  bottom: -100%; /* Hidden off the screen initially */
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+  transition: bottom 0.4s ease-in-out;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar.open {
+  bottom: 0; /* Move into view from bottom */
+}
+
+
+
+/* Optional: Overlay effect when sidebar is open */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+:root {
+  --button-bg: #ffffff; /* Button background color */
+  --button-border: #007bff; /* Button border color */
+  --button-text: #007bff; /* Button text color */
+  --button-hover-bg: #007bff; /* Background color on hover */
+  --button-hover-text: #ffffff; /* Text color on hover */
+  --button-padding: 10px 20px; /* Button padding */
+  --button-border-radius: 25px; /* Border radius for rounded corners */
+  --button-transition: background-color 0.3s ease, color 0.3s ease; /* Transition effects */
+}
+
+.but {
+  display: inline-block; /* Inline block to allow padding and margin */
+  background-color: var(--button-bg); /* Set button background color */
+  color: var(--button-text); /* Set button text color */
+  padding: var(--button-padding); /* Apply padding */
+  border: 2px solid var(--button-border); /* Thin border */
+  border-radius: var(--button-border-radius); /* Rounded corners */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove underline from links */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: var(--button-transition); /* Apply transition effects */
+}
+
+.but:hover {
+  background-color: var(--button-hover-bg); /* Change background color on hover */
+  color: var(--button-hover-text); /* Change text color on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+}
+/* Dropdown.css */
+/* Container for the dropdown */
+/* Container for the dropdown */
+.select-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Custom select styles */
+.select-container select {
+  appearance: none; /* Remove default styling */
+  width: 200px; /* Set width */
+  padding: 10px 20px; /* Padding for the select */
+  border: 2px solid #007BFF; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #fff; /* Background color */
+  font-size: 16px; /* Font size */
+  color: #333; /* Text color */
+  transition: border-color 0.3s ease; /* Transition for border color */
+}
+
+/* Change border color on focus */
+.select-container select:focus {
+  outline: none; /* Remove default outline */
+  border-color: #0056b3; /* Darker border color on focus */
+}
+
+/* Change cursor to pointer */
+.select-container select:hover {
+  cursor: pointer; /* Change cursor on hover */
+}
+
+/* Option styles */
+.select-container option {
+  padding: 10px; /* Padding for options */
+}
+
+/* Custom arrow for dropdown */
+.select-container::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Positioning */
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #007BFF; /* Color of the arrow */
+  transform: translateY(-50%); /* Center the arrow vertically */
 }

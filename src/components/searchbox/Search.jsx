@@ -180,7 +180,7 @@ const Search = () => {
       </div>
 
       <div className="headersearchitem">
-        <button onClick={handleSearch}>Search</button>
+        <button className="search-button" onClick={handleSearch}>Search</button>
       </div>
     </div>
   );
