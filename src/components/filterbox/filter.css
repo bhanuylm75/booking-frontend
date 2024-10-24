@@ -77,7 +77,7 @@ input[type="checkbox"]:checked + label {
 input[type="checkbox"]:checked {
   accent-color: #0071c2;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .filterbox{
     display: none;
     margin: 0;

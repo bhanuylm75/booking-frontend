@@ -84,7 +84,7 @@ const fetchPlaces = async (pageToken = null) => {
       <Customheader/>
        <div className='porn'>
        <div className="select-container">
-      <select value={selectedOption} onChange={handleChange}>
+      <select  value={selectedOption} onChange={handleChange}>
         <option value="" disabled>Select type</option>
         <option value="Hostels">Hostels</option>
         <option value="Resorts">Resorts</option>
