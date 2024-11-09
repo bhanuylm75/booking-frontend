@@ -8,9 +8,12 @@ import './App.css'
 import Placepage from './pages/placepage/Placepage';
 import Stays from './pages/stays/Stays';
 import Placedetails from './pages/placedetails/Placedetails';
+//import { fetchNearbyAttractions } from './components/utils/Apidata';
 //import Test from './components/test/Test';
 //import { Test1,CarouselSize } from './components/test/Test2';
 function App() {
+ 
+  
  return (
     <div className='con'>
       <Routes>
@@ -18,8 +21,7 @@ function App() {
       <Route path="/:index/:name" element={<Placepage/>} />
       <Route path="/:id" element={<Placedetails/>} />
       <Route path="/stays" element={<Stays/>} />
-     
-     
+      
       </Routes>
     </div>
   )

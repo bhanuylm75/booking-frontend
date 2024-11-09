@@ -56,7 +56,7 @@ const Home = () => {
               lng: location.lng,
             },
           });
-          //console.log(response)
+          console.log(response)
           setStays(response.data)
         } catch (error) {
           console.error('Error fetching stays:', error);
@@ -85,7 +85,7 @@ const Home = () => {
         
       <Properties stays={stays}/>
       
-      <Placescard stays={trips}/>
+      
       
       
       </div>

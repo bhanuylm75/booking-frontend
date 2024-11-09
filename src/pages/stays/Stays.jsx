@@ -107,7 +107,6 @@ const fetchPlaces = async (pageToken = null) => {
           <a href={`https://www.cleartrip.com/`} target="_blank" rel="noopener noreferrer">Cleartrip</a>
           <a href={`https://www.airbnb.com/`} target="_blank" rel="noopener noreferrer">Airbnb</a>
           <a href={`https://www.agoda.com/`} target="_blank" rel="noopener noreferrer">Agoda</a>
-          
          </div>
          <div className='hostelsdiv'>
          <h3 className='siteheading'>Hostels</h3>
