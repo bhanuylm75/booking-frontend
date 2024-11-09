@@ -148,11 +148,7 @@ const Placedetails = () => {
             </div>
           )}
         </div>
-
-          
-         
-
-          <h3>Guest who stayed here loved </h3>
+          <h3 className="review-head">Reviews</h3>
          <div className="review-con">
         {propertie?.reviews?.map((review,index)=>(
           review?.rating >= 4 ? <Review key={index} review={review} /> : null

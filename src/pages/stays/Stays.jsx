@@ -31,7 +31,7 @@ const Stays = () => {
 const fetchPlaces = async (pageToken = null) => {
   setIsFetching(true);
   
-  const url = `https://treepr.in/api/gethotels?searchValue=${searchValue}${pageToken ? `&nextPageToken=${pageToken}` : ''}`;
+  const url = `http://localhost:5000/api/gethotels?searchValue=${searchValue}${pageToken ? `&nextPageToken=${pageToken}` : ''}`;
 
   try {
     const response = await axios.get(url);
@@ -97,25 +97,28 @@ const fetchPlaces = async (pageToken = null) => {
       {isSidebarOpen && <div className={`sidebar overlay ${isSidebarOpen ? 'open' : ''}`} onClick={toggleSidebar}></div>}
       <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
       <button onClick={toggleSidebar} className='close-sidebar'>Close</button>
-        <h3 className='siteheading'>Top Stays</h3>
         <div className='site'>
          <div className='sitesdiv'>
-         <h3 className='siteheading'>Popular sites</h3>
-         <a className='subheading' target="_blank" href={`https://www.booking.com/searchresults.en-gb.html?ss=${searchValue}`}>Booking.com</a>
+         <p className='siteheading'>Popular sites</p>
+        <div className='link-container'>
+        <a className='subheading' target="_blank" href={`https://www.booking.com/searchresults.en-gb.html?ss=${searchValue}`}>Booking.com</a>
           <a href={`https://www.makemytrip.com/hotels/${linkitem}-hotels.html`} target="_blank" rel="noopener noreferrer">MakeMyTrip</a>
           <a href={`https://www.trivago.in/`} target="_blank" rel="noopener noreferrer">Trivago</a>
           <a href={`https://www.cleartrip.com/`} target="_blank" rel="noopener noreferrer">Cleartrip</a>
           <a href={`https://www.airbnb.com/`} target="_blank" rel="noopener noreferrer">Airbnb</a>
           <a href={`https://www.agoda.com/`} target="_blank" rel="noopener noreferrer">Agoda</a>
+        </div>
          </div>
          <div className='hostelsdiv'>
-         <h3 className='siteheading'>Hostels</h3>
-        
-          <a href={`https://www.zostel.com/`} target="_blank" rel="noopener noreferrer">Zostel</a>
+         <div className='siteheading'>Hostels</div>
+         <div className='link-container'>
+         <a href={`https://www.zostel.com/`} target="_blank" rel="noopener noreferrer">Zostel</a>
           <a href={`https://www.thehosteller.com/`} target="_blank" rel="noopener noreferrer">Hosteller</a>
          
           <a href={`https://www.hostelworld.com/`} target="_blank" rel="noopener noreferrer">HostelWorld</a>
 
+         </div>
+         
          </div>
         </div>
         

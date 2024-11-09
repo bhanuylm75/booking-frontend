@@ -2,64 +2,102 @@ body, html {
   margin: 0;
   padding: 0;
 }
-.siteheading {
+.siteheading{
   font-size: 36px;
   font-weight: bold;
+  display: block;
   color: #1a1a1a; /* Dark shade for a professional look */
-  text-align: center;
-  margin-bottom: 10px;
+ 
+ 
   background: linear-gradient(90deg, #007bff, #00c9ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'Poppins', sans-serif; /* Modern, clean font */
 }
 
-.a {
-  font-size: 20px;
-  font-weight: 500;
-  color: #555;
-  text-align: center;
-  margin-bottom: 20px;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 1px; /* Slight spacing for readability */
-  background: linear-gradient(90deg, #34ace0, #6a89cc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.popular-sites h3 {
+  font-size: 24px;
 }
 
-.site a {
-  font-size: 20px;
-  font-weight: 500;
-  color: #555;
-  text-align: center;
-  margin-bottom: 20px;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 1px; /* Slight spacing for readability */
-  background: linear-gradient(90deg, #34ace0, #6a89cc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.link-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+ 
 }
 
-.site a:hover {
-  color: var(--link-hover-color); /* Change color on hover */
-  background-color: rgba(0, 0, 0, 0.1); /* Darken background on hover */
+.link-container a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #006CE4;
+  padding: 8px 12px;
+  border: 2px solid skyblue; /* Navy border */
+  border-radius: 18px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.link-container a:hover {
+  background-color: navy;
+  color: white;
+}
+
+
+
+
 .porn{
   display: none;
 }
 .site{
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   
+}
+
+
+.sitesdiv{
+  display: flex;
+  flex-wrap: wrap;
  
-  gap: 4px;
+  gap: 10px;
+
+  
+}
+.hostelsdiv{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+ 
+  gap: 10px;
+  
 }
 .close-sidebar {
-  background: #dc3545;
+  background: linear-gradient(135deg, #ff4b5c, #d82e3f); /* Gradient for a vibrant look */
   color: white;
   border: none;
-  padding: 10px;
+  padding: 12px 20px; /* Increased padding for a better feel */
+  font-size: 16px; /* Slightly larger font size */
+  font-weight: bold; /* Bold font for emphasis */
   cursor: pointer;
+  border-radius: 20px; /* Rounded corners */
   margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Hover effects */
+.close-sidebar:hover {
+  background: linear-gradient(135deg, #d82e3f, #ff4b5c); /* Reverse gradient on hover */
+  color: #ffffff;
+  transform: translateY(-3px); /* Lift the button on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increased shadow for hover effect */
+}
+
+/* Active state for click effect */
+.close-sidebar:active {
+  transform: scale(0.98); /* Slightly scale down on click */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow */
 }
 
 @media (max-width: 768px) {
@@ -102,14 +140,7 @@ body, html {
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
-.sitesdiv{
-  display: flex;
-  flex-direction: column;
-}
-.hostelsdiv{
-  display: flex;
-  flex-direction: column;
-}
+
 .siDesc {
   display: flex;
   flex-direction: column;
