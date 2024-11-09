@@ -85,7 +85,7 @@ const Home = () => {
         
       <Properties stays={stays}/>
       
-      
+      <Placescard stays={trips}/>
       
       
       </div>
