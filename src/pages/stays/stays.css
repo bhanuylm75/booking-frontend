@@ -3,9 +3,9 @@ body, html {
   padding: 0;
 }
 .siteheading{
-  font-size: 36px;
+  font-size: 22px;
   font-weight: bold;
-  display: block;
+  
   color: #1a1a1a; /* Dark shade for a professional look */
  
  
@@ -27,7 +27,8 @@ body, html {
 }
 
 .link-container a {
-  font-size: 16px;
+
+  font-size: 12px;
   font-weight: 500;
   color: #006CE4;
   padding: 8px 12px;
@@ -58,6 +59,7 @@ body, html {
 
 .sitesdiv{
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
  
   gap: 10px;
