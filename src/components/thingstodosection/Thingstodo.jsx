@@ -6,7 +6,7 @@ import "./thingstodo.css"
 import { FaStar, FaUser } from "react-icons/fa"; 
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom';
-const para=["MostLovedPlaces","Tourist Attractions", "Stays","Restaurants","Nightlife"]
+const para=["MostLovedPlaces","TouristAttractions", "Stays","Restaurants","Nightlife"]
 
 const Thingstodo = ({place}) => {
   const [statedata,setstatedata]=useState([])
@@ -62,6 +62,7 @@ const getPhotoUrl = (photoReference) => {
               <img
                 src={getPhotoUrl(place.photos[0].photo_reference)}
                 alt={place.name}
+                loading='lazy'
                 className="custom-card-image"
               />
             ) : (

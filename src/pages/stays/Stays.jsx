@@ -9,7 +9,9 @@ import Customheader from '../../components/customheader/Customheader';
 
 const Stays = () => {
   const location = useLocation();
-  const { searchValue } = location.state || "chennai"; // Default value for testing
+  const params = new URLSearchParams(location.search);
+  const searchValue = params.get("placeName") || location.state?.searchValue || "Chennai";
+
   const [hotels, setHotels] = useState([]);
   const linkitem=searchValue.split(",")[0]
   const [nextPageToken, setNextPageToken] = useState(null);
@@ -143,7 +145,7 @@ const fetchPlaces = async (pageToken = null) => {
                 className="siImg"
               />
               <div className="siDesc">
-                <h1 className="siTitle">{hotel.name}n</h1>
+                <h1 className="siTitle">{hotel.name}</h1>
                 <span className="siDistance">500m from center</span>
                 
                 <span className="siFeatures">{hotel.formatted_address}</span>

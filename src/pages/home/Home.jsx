@@ -13,6 +13,7 @@ import Customheader from "../../components/customheader/Customheader"
 import Properties from "../../components/properties/Properties"
 import Placescard from "../../components/places/Placescard"
 import Maillist from "../../components/maillist/Maillist";
+import Topdest from "@/components/topdestinations/Topdest";
 //import { fetchNearbyAttractions } from "../../components/utils/Apidata"
 const fetchTrips = async () => {
   const { data } = await axios.get("https://treepr.in/gettrips");
@@ -84,8 +85,10 @@ const Home = () => {
       <div className="homeContainer">
         
       <Properties stays={stays}/>
+      <Topdest/>
       
       <Placescard stays={trips}/>
+      
       
       
       </div>

@@ -68,6 +68,8 @@ body {
   margin-top: 8px;
   opacity: 0.9;
   width: 90%;
+  margin-bottom: 15px;
+  font-family: 'Georgia', serif; 
 }
 
 /* Place Name */

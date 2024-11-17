@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import "./properties.css"
 import { useState,useRef } from "react";
+import SlideArrows from "../slidearrows/Slidearrow";
 
 const Properties = ({stays}) => {
   //const landstays=stays?.slice(0, 4)
@@ -37,7 +38,7 @@ const Properties = ({stays}) => {
     <div className="conn">
        <p className="para">Flagship Stays Around you</p>
        <div className="top">
-       <button className="arrow" onClick={handleLeftArrow}>
+     <button className="arrow" onClick={handleLeftArrow}>
         &#10094;
       </button>
       <button className="arrow" onClick={handleRightArrow}>
@@ -62,6 +63,7 @@ const Properties = ({stays}) => {
                 src="https://via.placeholder.com/400"
                 alt="No Image Available"
                 className="fpImg"
+                loading="lazy"
               />
             )}
           <div className="propcardbottom">

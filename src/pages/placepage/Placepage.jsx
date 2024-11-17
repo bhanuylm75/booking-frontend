@@ -11,12 +11,13 @@ const Placepage = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const location = useLocation();
   const place = location.state;
+  console.log(location)
   
   const deviceWidth = window.innerWidth;
   let photosperpage = 1;
 
   if (deviceWidth < 1024) {
-    photosperpage = place.images.length;
+    photosperpage = place?.images?.length;
   } else {
     photosperpage = 2;
   }
@@ -41,8 +42,7 @@ const Placepage = () => {
   return (
     <>
       <Navbar />
-      <Header type={"list"} />
-      <Customheader />
+      
       <div className='main-place'>
         <div className='first-con'>
           <h3 className='place-name'>{place.name}</h3>
@@ -57,7 +57,7 @@ const Placepage = () => {
         {/* Images */}
         <div className='second-con'>
           {visiblephotos.map((image, index) => (
-            <img key={index} className='place-image' src={image} alt={place.name} />
+            <img key={index} className='place-image' src={image} alt={place.name} loading='lazy' />
           ))}
         </div>
 
