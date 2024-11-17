@@ -1,48 +1,50 @@
-.destdiv{
+.destdiv {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
 
-  gap: 20px;
-  width: 100%;
- 
-  
- 
+.scroll-wrapper {
+  overflow-x: auto; /* Horizontal scroll */
+  overflow-y: visible; /* Allow stacking and overlap vertically */
+  white-space: nowrap; /* Prevent wrapping for smooth scrolling */
+  width: 100%; /* Ensure it spans the full width */
+  position: relative; /* Important for stacking */
 }
-.destcarddiv{
-  display: flex;
-  gap: 20px;
-  width: 100%;
-  overflow-x: scroll;
-}
-.destcarddiv::-webkit-scrollbar {
+
+.scroll-wrapper::-webkit-scrollbar {
   display: none; /* Hide scrollbar for Webkit browsers */
 }
+
+.destcarddiv {
+  display: flex;
+  gap: 20px;
+  position: relative; /* Necessary for stacking context */
+}
+
 .stack-container {
   position: relative;
-  width: 200px;  /* width of your images */
-  height: 210px; /* height of your images */
+  width: 200px; /* Width of your images */
+  height: 210px; /* Height of your images */
   flex-shrink: 0;
- 
+  margin-top: 20px; /* Optional spacing */
 }
-.text-div{
+
+.text-div {
   position: absolute;
   z-index: 99;
-  top:70%;
-  left:15px;
-
-  
-  
+  top: 70%;
+  left: 15px;
 }
 
-.text{
-  
+.text {
   background-color: white;
   color: black;
   border-radius: 5px;
   width: 40px;
   padding: 2px 9px;
   font-weight: bold;
- 
   font-size: 14px;
 }
 
@@ -51,11 +53,12 @@
   font-weight: bolder;
   font-size: 16px;
   line-height: 22px;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow to enhance visibility */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   display: inline-block;
   padding-top: 3px;
 }
+
 .image-stack {
   position: absolute;
   left: 0;
@@ -65,9 +68,8 @@
 }
 
 .image1 {
-  top: 0;  /* First image stays at the top */
+  top: 0; /* First image stays at the top */
   z-index: 3;
-
 }
 
 .image2 {
@@ -76,26 +78,20 @@
   opacity: 0.7;
   padding-left: 10px;
   padding-right: 10px;
- 
 }
 
 .image3 {
-  top: -20px; /* Push the third image further down */
+  top: -20px; /* Slightly push the third image down */
   z-index: 1;
   opacity: 0.4;
   padding-left: 15px;
   padding-right: 15px;
- 
- 
-  
-  
-  
 }
 
 .image-stack img {
   width: 100%;
-  height: 100%; /* Ensure the image fills the container */
-  object-fit: cover; /* Ensures the image covers the container properly */
+  height: 100%;
+  object-fit: cover;
   border-radius: 8px;
 }
 

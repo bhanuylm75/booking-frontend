@@ -47,7 +47,7 @@ const Topdest = () => {
   return (
    <div className="destdiv" ref={scrollContainerRef}>
      <div className="conn">
-       <p className="para">Flagship Stays Around you</p>
+       <p className="para">Handpicked Collections For You</p>
        <div className="top">
      <button className="arrow" onClick={handleLeftArrow}>
         &#10094;
@@ -58,7 +58,8 @@ const Topdest = () => {
        </div>
        </div>
     
-    <div className="destcarddiv">
+   <div className="scroll-wrapper">
+   <div className="destcarddiv">
     {data?.map((each,i)=> {
       return (
        <Link to={`/collections/${each?.collectionName}`} state={each?.name} key={i}>
@@ -85,6 +86,7 @@ const Topdest = () => {
       )
     })}
     </div>
+   </div>
     </div>
 
   )
