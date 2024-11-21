@@ -1,26 +1,18 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import Navbar from '../../components/navbar/Navbar';
-import Header from '../../components/header/Header';
-import Thingstodo from '../../components/thingstodosection/Thingstodo';
-import Customheader from '../../components/customheader/Customheader';
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Navbar from "../../components/navbar/Navbar";
+import Thingstodo from "../../components/thingstodosection/Thingstodo";
 import "./placepage.css";
+import { motion } from "framer-motion";
 
 const Placepage = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const location = useLocation();
   const place = location.state;
-  console.log(location)
-  
-  const deviceWidth = window.innerWidth;
-  let photosperpage = 1;
 
-  if (deviceWidth < 1024) {
-    photosperpage = place?.images?.length;
-  } else {
-    photosperpage = 2;
-  }
+  const deviceWidth = window.innerWidth;
+  const photosPerPage = deviceWidth < 1024 ? place?.images?.length : 2;
 
   const handlePrevClick = () => {
     if (currentImageIndex > 0) {
@@ -29,42 +21,89 @@ const Placepage = () => {
   };
 
   const handleNextClick = () => {
-    if (currentImageIndex + photosperpage < place.images.length) {
+    if (currentImageIndex + photosPerPage < place.images.length) {
       setCurrentImageIndex(currentImageIndex + 1);
+    } else {
+      setCurrentImageIndex(place.images.length - photosPerPage); // Ensures we stop at the last full set
     }
   };
 
-  const visiblephotos = place.images.slice(currentImageIndex, currentImageIndex + photosperpage);
-
-  const isPrevDisabled = currentImageIndex === 0; // Disable left arrow if at the first image
-  const isNextDisabled = currentImageIndex + photosperpage >= place.images.length; // Disable right arrow if at the last image
+  const isPrevDisabled = currentImageIndex === 0;
+  const isNextDisabled =
+    currentImageIndex + photosPerPage >= place.images.length;
 
   return (
     <>
       <Navbar />
-      
-      <div className='main-place'>
-        <div className='first-con'>
-          <h3 className='place-name'>{place.name}</h3>
-          <p className='place-description'>{place.description}</p>
+      <div className="main-place">
+        <div className="first-con">
+          <motion.h3 className="place-name">{place.name}</motion.h3>
+          <p className="place-description">{place.description}</p>
         </div>
 
-        {/* Left arrow */}
-        <div className={`arrow-left ${isPrevDisabled ? 'disabled' : ''}`} onClick={!isPrevDisabled ? handlePrevClick : null}>
+        {/* Left Arrow */}
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className={`arrow-left ${isPrevDisabled ? "disabled" : ""}`}
+          onClick={!isPrevDisabled ? handlePrevClick : null}
+        >
           <FaChevronLeft />
-        </div>
+        </motion.div>
 
         {/* Images */}
-        <div className='second-con'>
-          {visiblephotos.map((image, index) => (
-            <img key={index} className='place-image' src={image} alt={place.name} loading='lazy' />
-          ))}
-        </div>
+        <motion.div
+          className="second-con"
+          style={{ display: "flex", overflow: "auto" }}
+        >
+          <motion.div
+            className="image-slider"
+            drag="x"
+            dragConstraints={{
+              left: -(place.images.length - photosPerPage) * 200, // Adjust based on image width
+              right: 0,
+            }}
+            dragElastic={0.1}
+             
+            style={{
+              display: "flex",
+              gap: "10px",
+             
+              
+              cursor:"grab"
+            }}
+            animate={{
+              x: `-${currentImageIndex * (90 / photosPerPage)}%`,
+            }}
+            whileTap={{ cursor: "grabbing" }}
+            transition={{
+              type: "spring",
+              stiffness: 50,
+              damping: 15,
+            }}
+          >
+            {place.images.map((image, index) => (
+              <img
+                key={index}
+                className="place-image"
+                src={image}
+                alt={place.name}
+                loading="lazy"
+                
+              />
+            ))}
+          </motion.div>
+        </motion.div>
 
-        {/* Right arrow */}
-        <div className={`arrow-right ${isNextDisabled ? 'disabled' : ''}`} onClick={!isNextDisabled ? handleNextClick : null}>
+        {/* Right Arrow */}
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className={`arrow-right ${isNextDisabled ? "disabled" : ""}`}
+          onClick={!isNextDisabled ? handleNextClick : null}
+        >
           <FaChevronRight />
-        </div>
+        </motion.div>
       </div>
 
       <Thingstodo className="things-display" place={place} />
