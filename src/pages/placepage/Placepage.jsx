@@ -54,16 +54,11 @@ const Placepage = () => {
         {/* Images */}
         <motion.div
           className="second-con"
-          style={{ display: "flex", overflow: "auto" }}
+          style={{ display: "flex", overflow:"hidden" }}
         >
           <motion.div
             className="image-slider"
-            drag="x"
-            dragConstraints={{
-              left: -(place.images.length - photosPerPage) * 200, // Adjust based on image width
-              right: 0,
-            }}
-            dragElastic={0.1}
+           
              
             style={{
               display: "flex",
