@@ -10,9 +10,11 @@ const Placepage = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const location = useLocation();
   const place = location.state;
-
+  
   const deviceWidth = window.innerWidth;
   const photosPerPage = deviceWidth < 1024 ? place?.images?.length : 2;
+  const isSmallOrMedium = deviceWidth < 1024;
+
 
   const handlePrevClick = () => {
     if (currentImageIndex > 0) {
@@ -52,7 +54,19 @@ const Placepage = () => {
         </motion.div>
 
         {/* Images */}
-        <motion.div
+        {isSmallOrMedium?  <div className="second-con">
+  {place.images
+    .slice(currentImageIndex, currentImageIndex + photosPerPage)
+    .map((image, index) => (
+      <img
+        key={index}
+        className="place-image"
+        src={image}
+        alt={place.name}
+        loading="lazy"
+      />
+    ))}
+</div>: <motion.div
           className="second-con"
           style={{ display: "flex", overflow:"hidden" }}
         >
@@ -62,13 +76,13 @@ const Placepage = () => {
              
             style={{
               display: "flex",
-              gap: "10px",
+              gap: "5px",
              
               
               cursor:"grab"
             }}
             animate={{
-              x: `-${currentImageIndex * (90 / photosPerPage)}%`,
+              x: `-${currentImageIndex * (50 + (9 / deviceWidth) * 100)}%`, // Accounts for gap and width
             }}
             whileTap={{ cursor: "grabbing" }}
             transition={{
@@ -89,6 +103,7 @@ const Placepage = () => {
             ))}
           </motion.div>
         </motion.div>
+}
 
         {/* Right Arrow */}
         <motion.div
