@@ -5,11 +5,10 @@
   padding: 16px;
   border-radius: 18px;
   width: 34%;
-  aspect-ratio: 16/9;
+  
  
   flex-shrink: 0;
-  
-  overflow-y: scroll;
+
  
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: '__Inter_93dd90', Inter, sans-serif !important;
@@ -234,12 +233,12 @@
 /* Responsive Adjustments for Drawer */
 @media (max-width: 768px) {
   .drawer {
-    width: 80%; /* Reduce width for medium devices */
+    width: 70%; /* Reduce width for medium devices */
   }
 }
 
 @media (max-width: 480px) {
   .drawer {
-    width: 100%; /* Full width for small devices */
+    width: 70%; /* Full width for small devices */
   }
 }

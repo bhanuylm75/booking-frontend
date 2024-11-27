@@ -36,19 +36,15 @@ const Header = ({type}) => {
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faPlane} />
-            <span>Flights</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faCar} />
-            <span>Car rentals</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faBed} />
             <span>Attractions</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faTaxi} />
-            <span>Airport taxis</span>
+            <FontAwesomeIcon icon={faCar} />
+            <span>Road Trips</span>
+          </div>
+          <div className="headerListItem">
+            <FontAwesomeIcon icon={faBed} />
+            <span>Blogs</span>
           </div>
         </div>
         {type !== "list" && (

@@ -10,6 +10,12 @@ const Customheader = () => {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState(''); // Controls user input
   const [autocomplete, setAutocomplete] = useState(null); // Manages Autocomplete instance
+  const getCurrentDate = () => {
+    const currentDate = new Date();
+    return currentDate.toISOString().split("T")[0]; // Format to YYYY-MM-DD
+  };
+
+  const [today, setToday] = useState(getCurrentDate); 
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_API_KEY, // Replace with your actual API key
@@ -75,8 +81,10 @@ const Customheader = () => {
         </div>
 
         <div className="header-date-inputs">
-          <input type="date" className="header-input" placeholder="Check-in" />
-          <input type="date" className="header-input" placeholder="Check-out" />
+          <input type="date" value={today} // Set value to today's date
+        onChange={(e) => setToday(e.target.value)}  className="header-input" placeholder="Check-in" />
+          <input type="date" className="header-input" placeholder="Check-out" value={today} // Set value to today's date
+        onChange={(e) => setToday(e.target.value)}   />
         </div>
 
         <div className="header-search-button">
