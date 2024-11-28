@@ -34,6 +34,9 @@ const Placepage = () => {
   const isNextDisabled =
     currentImageIndex + photosPerPage >= place.images.length;
 
+
+    
+
   return (
     <>
       <Navbar />

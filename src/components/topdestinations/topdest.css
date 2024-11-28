@@ -123,12 +123,3 @@
 
 
 
-@media (hover: none) and (pointer: coarse) {
-  .image1:active ~ .image2 {
-    transform: translateX(20px);
-  }
-
-  .image1:active ~ .image3 {
-    transform: translateX(30px);
-  }
-}

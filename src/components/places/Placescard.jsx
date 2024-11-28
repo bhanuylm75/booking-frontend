@@ -1,12 +1,14 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
-
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 import "./places.css"
-
+import axios from "axios"
 const Placescard = ({stays }) => {
+  const navigate = useNavigate();
   const scrollContainerRef = useRef(null);
   //const staysPerPage = 4;
   console.log(stays)
@@ -32,8 +34,52 @@ const Placescard = ({stays }) => {
       });
     }
   };
-  //const visibleStays = stays.slice(currentIndex, currentIndex + staysPerPage);
-  //console.log(visibleStays[0]?.images[0])
+
+
+  const [prefetchedData, setPrefetchedData] = useState(null);
+
+  // Function to prefetch data
+  const prefetchData = async () => {
+    try {
+      const response = await axios.get(`https://treepr.in/api/thingstodo`, {
+        params: {
+          lat: place.latitude,
+          lng: place.longtitude,
+          query:query,
+        },
+      });
+      console.log(response);
+      setPrefetchedData(response.data.results)
+  } catch (error) {
+      console.error('Error fetching places:', error);
+  }
+  };
+
+  // Detect when the page is idle and prefetch data
+  useEffect(() => {
+    if (typeof requestIdleCallback !== "undefined") {
+      // Use requestIdleCallback if available
+      requestIdleCallback(() => {
+        prefetchData();
+      });
+    } else {
+      // Fallback for browsers that don't support requestIdleCallback
+      setTimeout(() => {
+        prefetchData();
+      }, 100); // Delay fetching for a little after load
+    }
+  }, []);
+
+  const handleNavigation = (e) => {
+    e.preventDefault(); // Prevent default anchor behavior
+
+    // Navigate to the next page and pass the prefetched data
+    navigate("/next-page", { state: { prefetchedData } });
+  };
+
+  
+
+
   return (
     <div className="trip-con">
     <div className="conn">
@@ -57,7 +103,7 @@ const Placescard = ({stays }) => {
          {place?.images?.slice(0,1).map((image,index)=>(
           <img key={index}  className="trip-img" src={image}/>
         ))}
-        <p className="tdesc">{place.name}</p>
+        <p className="tdesc">{place.name} </p>
       </div>
       </Link>
      ))}
