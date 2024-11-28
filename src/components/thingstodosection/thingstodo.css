@@ -90,7 +90,7 @@ body {
 }
 
 .custom-card:hover .custom-card-image {
-  transform: scale(1.05); /* Image zoom effect on hover */
+  transform: scale(1.08); /* Image zoom effect on hover */
 }
 
 .custom-card-title {
@@ -225,5 +225,49 @@ body {
   .explore-btn {
     padding: 8px 15px;
   }
+  
 }
 
+.skeleton-card {
+  background: #f0f0f0;
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 30%;
+  aspect-ratio: 16 / 9;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.skeleton-image {
+  background: #e0e0e0;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+}
+
+.skeleton-title {
+  background: #e0e0e0;
+  height: 0.5rem;
+  width: 60%;
+  margin: 10px auto;
+  border-radius: 4px;
+}
+
+.skeleton-line {
+  background: #e0e0e0;
+  height: 0.7rem;
+  width: 80%;
+  margin: 5px auto;
+  border-radius: 4px;
+}
+
+.skeleton-bottom {
+  background: #e0e0e0;
+  height: 1rem;
+  width: 40%;
+  margin: 10px auto;
+  border-radius: 4px;
+}

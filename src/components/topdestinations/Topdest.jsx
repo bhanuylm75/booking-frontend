@@ -1,26 +1,26 @@
 import "./topdest.css";
-import { useEffect, useState, useRef } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { motion } from "framer-motion"; // Import Framer Motion
+import { useQuery } from "react-query";
+import axios from "axios";
+
+const fetchCollections = async () => {
+  const response = await axios.get("https://treepr.in/api/collections");
+  return response.data;
+};
 
 const Topdest = () => {
-  const [data, setData] = useState(null);
-
   const scrollContainerRef = useRef(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://treepr.in/api/collections");
-        setData(response.data);
-      } catch (err) {
-        console.error("Error fetching data:", err);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const { data, isLoading, isError, error } = useQuery(
+    "collections",
+    fetchCollections,
+    {
+      staleTime: Infinity, // Cache forever (until manual invalidation)
+      cacheTime: 5 * 60 * 1000, // Time to keep in cache after unused (optional)
+    }
+  );
 
   const handleLeftArrow = () => {
     if (scrollContainerRef.current) {
@@ -39,6 +39,15 @@ const Topdest = () => {
       });
     }
   };
+
+  // Handle loading and error states
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <div className="destdiv" ref={scrollContainerRef}>
@@ -68,21 +77,14 @@ const Topdest = () => {
                     <img src={each?.dataone?.images[0]} alt="Image 1" />
                   </div>
 
-                  <div
-                    className="image-stack image2"
-                    
-                  >
+                  <div className="image-stack image2">
                     <img
                       src="https://via.placeholder.com/200x150"
                       alt="Image 2"
                     />
                   </div>
 
-                  <div
-                    className="image-stack image3"
-                  
-                    
-                  >
+                  <div className="image-stack image3">
                     <img
                       src="https://via.placeholder.com/200x150"
                       alt="Image 3"

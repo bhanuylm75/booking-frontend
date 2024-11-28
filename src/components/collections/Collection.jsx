@@ -4,6 +4,7 @@ import { Link, useParams,useLocation } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import { useQuery } from "react-query";
 import axios from "axios";
+import Skeleton from "../skeleton/skeleton";
 
 const fetchCollectionData = async (collectionName) => {
   const response = await axios.get(`https://treepr.in/api/collections/${collectionName}`);
@@ -26,7 +27,7 @@ const Collection = () => {
     }
   );
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Skeleton/>
   if (error) return <div>Error: {error.message}</div>;
 
   return (
