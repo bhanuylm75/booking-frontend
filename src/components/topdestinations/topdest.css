@@ -113,13 +113,16 @@
 
 
 
-.image1:hover ~ .image2 {
-  transform: translatex(20px); /* Moves up slightly */
+@media (min-width: 1024px) { /* Adjust breakpoint for large devices as needed */
+  .image1:hover ~ .image2 {
+    transform: translateX(20px); /* Moves right slightly */
+  }
+
+  .image1:hover ~ .image3 {
+    transform: translateX(30px); /* Moves right slightly more */
+  }
 }
 
-.image1:hover ~ .image3 {
-  transform: translateX(30px); /* Moves up slightly more */
-}
 
 
 

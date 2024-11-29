@@ -9,6 +9,7 @@ import Placescard from "../../components/places/Placescard";
 import Maillist from "../../components/maillist/Maillist";
 import Topdest from "@/components/topdestinations/Topdest";
 import "./home.css";
+import Footer from "@/components/footer/Footer";
 
 const fetchTrips = async () => {
   const { data } = await axios.get("https://treepr.in/gettrips");
@@ -69,6 +70,7 @@ const Home = () => {
         {/* Pass trips data to Placescard component */}
         <Placescard stays={trips} />
       </div>
+      <div> <Footer/></div>
     </div>
   );
 };

@@ -27,7 +27,7 @@ const Collection = () => {
     }
   );
 
-  if (isLoading) return <Skeleton/>
+  //if (isLoading) return <Skeleton/>
   if (error) return <div>Error: {error.message}</div>;
 
   return (
@@ -37,7 +37,7 @@ const Collection = () => {
         <h1 className="col-head">{name}</h1>
         <hr className="thin-line"></hr>
         <div className='customcardmain'>
-          {data?.map((place, index) => (
+        {isLoading? <Skeleton/>:   data?.map((place, index) => (
             <Link className="custom-card" key={index} to={`/${index}/${encodeURIComponent(place.name)}`} state={place}>
               <div>
                 <img
