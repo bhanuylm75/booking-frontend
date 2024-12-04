@@ -11,8 +11,8 @@
 }
 
 .footer-quote {
-  font-family: 'Great Vibes', cursive;
   font-size: 1.2rem;
+  width: fit-content;
   color: #333333; /* Dark gray for better contrast */
   margin: 0; /* Remove default margin */
 }

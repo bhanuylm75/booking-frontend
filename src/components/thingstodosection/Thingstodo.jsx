@@ -7,7 +7,7 @@ import { FaStar, FaUser } from "react-icons/fa";
 import "./thingstodo.css";
 import Skeleton from "../skeleton/skeleton";
 
-const para = ["MostLovedPlaces", "TouristAttractions", "Stays", "Restaurants", "Nightlife"];
+const para = ["MostLovedPlaces", "TouristAttractions", "Stays"];
 
 const Thingstodo = ({ place }) => {
   const [statedata, setstatedata] = useState([]);
