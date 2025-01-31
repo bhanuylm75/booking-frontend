@@ -20,7 +20,7 @@
 
 .destcarddiv {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   position: relative; /* Necessary for stacking context */
 }
 
@@ -81,6 +81,7 @@
   opacity: 0.7;
   padding-left: 10px;
   padding-right: 10px;
+  background-color: lightgray;
 }
 
 .image3 {
@@ -89,6 +90,7 @@
   opacity: 0.4;
   padding-left: 15px;
   padding-right: 15px;
+  background-color: lightgray;
 }
 
 .image-stack img {
@@ -115,11 +117,11 @@
 
 @media (min-width: 1024px) { /* Adjust breakpoint for large devices as needed */
   .image1:hover ~ .image2 {
-    transform: translateX(20px); /* Moves right slightly */
+    transform: translateX(10px); /* Moves right slightly */
   }
 
   .image1:hover ~ .image3 {
-    transform: translateX(30px); /* Moves right slightly more */
+    transform: translateX(20px); /* Moves right slightly more */
   }
 }
 

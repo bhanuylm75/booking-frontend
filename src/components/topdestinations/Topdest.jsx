@@ -78,17 +78,11 @@ const Topdest = () => {
                   </div>
 
                   <div className="image-stack image2">
-                    <img
-                      src="https://via.placeholder.com/200x150"
-                      alt="Image 2"
-                    />
+                    
                   </div>
 
                   <div className="image-stack image3">
-                    <img
-                      src="https://via.placeholder.com/200x150"
-                      alt="Image 3"
-                    />
+                    
                   </div>
 
                   <div className="text-div">

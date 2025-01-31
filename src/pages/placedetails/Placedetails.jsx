@@ -14,6 +14,7 @@ import {
 import Navbar from "../../components/navbar/Navbar";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import SkeletonPlacedetails from "@/components/skeleteon-placedetails/ske-placepage";
 import axios from "axios";
 
 

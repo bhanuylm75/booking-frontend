@@ -1,0 +1,126 @@
+.skeletonHotelContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.skeletonHotelWrapper {
+  width: 87%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.skeletonElement {
+  background: #e0e0e0; /* Light gray for the placeholder effect */
+  border-radius: 5px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeletonTitle {
+  width: 50%;
+  height: 24px;
+  margin-bottom: 10px;
+}
+
+.skeletonAddress,
+.skeletonDistance,
+.skeletonPriceHighlight {
+  width: 70%;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+.skeletonFpRating {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.skeletonRatingCircle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.skeletonRatingText {
+  width: 100px;
+  height: 16px;
+}
+
+.skeletonImages {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.skeletonImageWrapper {
+  width: 100%;
+  height: 250px;
+}
+
+.skeletonReviewHead {
+  width: 30%;
+  height: 22px;
+  margin: 10px 0;
+}
+
+.skeletonReviewCon {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.skeletonReview {
+  width: 200px;
+  height: 100px;
+}
+
+.skeletonButton {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  width: 150px;
+  height: 40px;
+}
+
+/* Pulse effect for loading */
+@keyframes pulse {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #f2f2f2;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}
+
+/* Responsive Skeleton Styles */
+@media (max-width: 1024px) {
+  .skeletonHotelWrapper {
+    width: 95%;
+  }
+
+  .skeletonImages {
+    display: flex;
+    overflow-x: scroll;
+    gap: 10px;
+  }
+
+  .skeletonImageWrapper {
+    flex: 0 0 100%;
+    height: 200px;
+  }
+
+  .skeletonButton {
+    display: none;
+  }
+}
