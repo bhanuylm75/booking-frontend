@@ -26,7 +26,7 @@ const fetchProperties = async (lat, lng) => {
 };
 
 const Home = () => {
-  const [location, setLocation] = useState({ lat: null, lng: null });
+  const [location, setLocation] = useState({ lat: 15.2993, lng: 74.1240 });
 
   // Fetch user location
   useEffect(() => {

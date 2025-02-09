@@ -1,6 +1,5 @@
-/* eslint-disable react/no-unknown-property */
 import "./collection.css";
-import { Link, useParams,useLocation } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import { useQuery } from "react-query";
 import axios from "axios";
@@ -8,26 +7,20 @@ import Skeleton from "../skeleton/skeleton";
 
 const fetchCollectionData = async (collectionName) => {
   const response = await axios.get(`https://treepr.in/api/collections/${collectionName}`);
-  return response.data.trips; // Adjust if response structure is different
+  return response.data.trips;
 };
 
 const Collection = () => {
   const { collectionName } = useParams();
   const location = useLocation();
-  const name = location.state; // This will contain `each.name` or `each` if you passed the entire o
-  console.log(name)
+  const name = location.state || collectionName;
 
-  
-  // Using React Query
   const { data, error, isLoading } = useQuery(
     ["collection", collectionName],
     () => fetchCollectionData(collectionName),
-    {
-      staleTime: Infinity, // Data will remain fresh indefinitely
-    }
+    { staleTime: Infinity }
   );
 
-  //if (isLoading) return <Skeleton/>
   if (error) return <div>Error: {error.message}</div>;
 
   return (
@@ -35,32 +28,26 @@ const Collection = () => {
       <Navbar />
       <div className='banner-con'>
         <h1 className="col-head">{name}</h1>
-        <hr className="thin-line"></hr>
+        <hr className="thin-line" />
         <div className='customcardmain'>
-        {isLoading? <Skeleton/>:   data?.map((place, index) => (
+          {isLoading ? <Skeleton /> : data?.map((place, index) => (
             <Link className="custom-card" key={index} to={`/${index}/${encodeURIComponent(place.name)}`} state={place}>
-              <div>
-                <img
-                  src={place?.images[0]}
-                  alt={place.name}
-                  loading='lazy'
-                  className="custom-card-image"
-                />
-                <h1>{place.name}</h1>
-                <p className="description-text">{place.description.slice(0, 73)}</p>
-                <hr className="thin-line"></hr>
-                <div className="card-bottom">
-                  <div className="left">
-                    <Link to={`/stays?placeName=${encodeURIComponent(place?.name)}`}>
-                      <button className="explore-btn">Book Hotels</button>
-                    </Link>
-                  </div>
-                  <div className="right">
-                    <Link to={`/${index}/${encodeURIComponent(place.name)}`} state={place}>
-                      <button className="explore-btn">Explore More</button>
-                    </Link>
-                  </div>
-                </div>
+              <img
+                src={place?.images[0]}
+                alt={place.name}
+                loading='lazy'
+                className="custom-card-image"
+              />
+              <h1>{place.name}</h1>
+              <p className="description-text">{place.description.slice(0, 73)}...</p>
+              <hr className="thin-line" />
+              <div className="card-bottom">
+                <Link to={`/stays?placeName=${encodeURIComponent(place?.name)}`}>
+                  <button className="explore-btn">Book Hotels</button>
+                </Link>
+                <Link to={`/${index}/${encodeURIComponent(place.name)}`} state={place}>
+                  <button className="explore-btn">Explore More</button>
+                </Link>
               </div>
             </Link>
           ))}

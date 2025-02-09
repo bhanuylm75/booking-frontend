@@ -94,9 +94,9 @@ body {
 }
 
 .custom-card-title {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #333333;
+  font-size: 16px;
+ 
+  color: rgb(107, 106, 106);
   margin: 10px 0;
   text-transform: capitalize;
   transition: color 0.3s ease;
@@ -169,10 +169,10 @@ body {
 }
 
 .explore-btn:hover {
-  background-color: #e6f0ff; /* Light blue background on hover */
+  background: linear-gradient(90deg, #1f78b4, #1ca8dd);
   transform: translateY(-2px); /* Subtle lift effect */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
-  color: #00264d; /* Slightly darker blue text */
+  color: #d0d8df; /* Slightly darker blue text */
 }
 
 .explore-btn:active {
@@ -215,7 +215,7 @@ body {
   }
 
   .custom-card-title {
-    font-size: 1.2rem;
+    font-size: 14px;
   }
 
   .custom-card-description {

@@ -11,7 +11,7 @@
 }
 
 .footer-quote {
-  font-size: clamp(1rem, 2vw, 1rem); /* Responsive font size */
+  font-size: 1.2rem; /* Responsive font size */
   font-family: 'Dancing Script', cursive; /* Elegant handwritten style */
   color: #2c3e50; /* Slightly darker shade */
   text-align: center;
@@ -25,14 +25,14 @@
 /* Mobile-specific styles */
 @media (max-width: 768px) {
   .footer-quote {
-    font-size: 1rem; /* Slightly smaller font */
+    font-size: 1.5rem; /* Slightly smaller font */
     padding: 0.5rem; /* Reduce padding */
   }
 }
 
 @media (max-width: 480px) {
   .footer-quote {
-    font-size: 9px; /* Even smaller font for very small screens */
+    font-size: 12px; /* Even smaller font for very small screens */
     padding: 0.4rem;
   }
 }
