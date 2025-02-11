@@ -27,6 +27,7 @@ const fetchProperties = async (lat, lng) => {
 
 const Home = () => {
   const [location, setLocation] = useState({ lat: 15.2993, lng: 74.1240 });
+  console.log(import.meta.env.VITE_GOOGLE_API_KEY)
 
   // Fetch user location
   useEffect(() => {
@@ -65,7 +66,7 @@ const Home = () => {
       <Customheader />
       <div className="homeContainer">
         {/* Pass stays data to Properties component */}
-        <Properties stays={stays} />
+        <Properties stays={stays}/>
         <Topdest />
         {/* Pass trips data to Placescard component */}
         <Placescard stays={trips} />

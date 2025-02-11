@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 import axios from "axios";
 
 const fetchCollections = async () => {
-  const response = await axios.get("http://localhost:5000/api/collections");
+  const response = await axios.get("https://treepr.in/api/collections");
   console.log(response)
   return response.data;
 };

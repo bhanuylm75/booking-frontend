@@ -6,7 +6,9 @@ import SlideArrows from "../slidearrows/Slidearrow";
 
 const Properties = ({stays}) => {
   //const landstays=stays?.slice(0, 4)
+  //consoe.log(import.meta.env.VITE_GOOGLE_API_KEY)
   const scrollContainerRef = useRef(null);
+
   
  
   const handleLeftArrow = () => {

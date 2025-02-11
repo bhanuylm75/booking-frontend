@@ -98,12 +98,12 @@ const Placescard = ({stays }) => {
     <p2>These popular destinations have a lot to offer</p2>
     <div className="abc" ref={scrollContainerRef}>
     {stays?.map((place,index) => (
-      <Link className="no-underline" to={`/${index}/${encodeURIComponent(place.name)}`} state={place}>
+      <Link className="no-underline" to={`/${index}/${encodeURIComponent(place?.name)}`} state={place}>
       <div className="maintrip-card" key={index}>
          {place?.images?.slice(0,1).map((image,index)=>(
           <img key={index}  className="trip-img" src={image}/>
         ))}
-        <p className="tdesc">{place.name} </p>
+        <p className="tdesc">{place?.name} </p>
       </div>
       </Link>
      ))}
