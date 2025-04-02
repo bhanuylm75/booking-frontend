@@ -3,7 +3,10 @@ import { Link, useParams, useLocation } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import { useQuery } from "react-query";
 import axios from "axios";
+import { useEffect } from "react";
 import Skeleton from "../skeleton/skeleton";
+import Banner from "../banner/Banner";
+import Customheader from "../customheader/Customheader";
 
 const fetchCollectionData = async (collectionName) => {
   const response = await axios.get(`https://treepr.in/api/collections/${collectionName}`);
@@ -20,12 +23,17 @@ const Collection = () => {
     () => fetchCollectionData(collectionName),
     { staleTime: Infinity }
   );
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (error) return <div>Error: {error.message}</div>;
+  
 
   return (
-    <>
+    <div className="main-col">
       <Navbar />
+       <Banner data={data} />
       <div className='banner-con'>
         <h1 className="col-head">{name}</h1>
         <hr className="thin-line" />
@@ -39,7 +47,7 @@ const Collection = () => {
                 className="custom-card-image"
               />
               <h1>{place.name}</h1>
-              <p className="description-text">{place.description.slice(0, 73)}...</p>
+             
               <hr className="thin-line" />
               <div className="card-bottom">
                 <Link to={`/stays?placeName=${encodeURIComponent(place?.name)}`}>
@@ -53,7 +61,7 @@ const Collection = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
