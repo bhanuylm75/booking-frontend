@@ -33,7 +33,7 @@ const Collection = () => {
   return (
     <div className="main-col">
       <Navbar />
-       <Banner data={data} />
+       
       <div className='banner-con'>
         <h1 className="col-head">{name}</h1>
         <hr className="thin-line" />
